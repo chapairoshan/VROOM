@@ -13,6 +13,8 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
+// Define $targetFile variable
+$targetFile = "";
 
 // Handle image upload
 if (isset($_FILES['image'])) {
@@ -28,24 +30,28 @@ if (isset($_FILES['image'])) {
     $tempFile = $_FILES['image']['tmp_name'];
 
     // Generate a unique filename to avoid overwriting existing files
-    $targetFile = $uploadDirectory . uniqid() . '_' . $_FILES['image']['name'];
+    $filename = uniqid() . '_' . $_FILES['image']['name'];
+    $targetFile = $uploadDirectory . $filename;
 
     // Move the uploaded file to the specified directory
     if (move_uploaded_file($tempFile, $targetFile)) {
         // Image uploaded successfully
-        echo "success";
+        $filename = basename($targetFile); // Extract only the filename
+        echo json_encode(["success" => true, "targetFile" => $filename]); // Return success and targetFile
     } else {
         // Error uploading image
-        echo "Error uploading image";
+        echo json_encode(["success" => false, "error" => "Error uploading image"]);
     }
 }
 
-if(isset($_POST['saveCars'])) {
+if (isset($_POST['saveCars'])) {
     $carName = $_POST['carName'];
     $carBrand = $_POST['carBrand'];
     $VehicleNumber = $_POST['VehicleNumber'];
     $carType = $_POST['carType'];
-    $targetFile = $_POST['targetFile'];
+
+    // Get the targetFile value from the POST data
+    $targetFile = isset($_POST['targetFile']) ? $_POST['targetFile'] : "";
 
     // Prepare and execute statement
     $stmt = $conn->prepare("INSERT INTO Cars (CarName, CarBrand, CarType, VehicleNumber, Image) VALUES (?, ?, ?, ?, ?)");

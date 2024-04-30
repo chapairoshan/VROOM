@@ -41,9 +41,6 @@
         <div class="popup-content">
             <span class="close-btn" id="closeBtn">&times;</span>
             <h2 id="popupHeading">Add Cars</h2>
-            <?php if (isset($_GET['error'])): ?>
-		    <p><?php echo $_GET['error']; ?></p>
-	        <?php endif ?>
             <div class="car-form" id="carForm">
                 <form id="carDetailsForm">
                     <div class="form-group">
@@ -65,7 +62,7 @@
                     <div class="form-group">
                         <label for="vehicleNumber">Vehicle Number:</label>
                         <input type="text" id="vehicleNumber" name="vehicleNumber" required>
-                    <button type="submit" id="saveCarBtn" onclick="saveCars()">Save Car</button>
+                    <button type="submit" id="saveCarBtn" onclick="saveButton()">Save Car</button>
                 </form>
             </div>
         </div>

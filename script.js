@@ -353,11 +353,14 @@ function uploadImage() {
         .then(response => {
             if (response.ok) {
                 console.log('Image uploaded successfully');
-                resolve(); // Resolve the promise if upload is successful
+                return response.json(); // Parse the JSON response
             } else {
                 console.error('Error uploading image:', response.statusText);
                 reject('Error uploading image');
             }
+        })
+        .then(data => {
+            resolve(data.targetFile); // Resolve with the targetFile value
         })
         .catch(error => {
             console.error('Error uploading image:', error);
@@ -366,31 +369,40 @@ function uploadImage() {
     });
 }
 
-function saveCars() {
+function saveCars(targetFile) {
     var carName = document.getElementById('carName').value;
     var carBrand = document.getElementById('carBrand').value;
     var vehicleNumber = document.getElementById('vehicleNumber').value;
     var carType = document.getElementById('carType').value;
 
-    uploadImage().then(() => {
-        var xhr = new XMLHttpRequest();
-        xhr.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                var response = this.responseText;
-                console.log(response);
-                if (response.trim() === "success") {
-                    console.log("stored")
-                } else {
-                    console.log("bug feature");
-                }
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            var response = this.responseText;
+            console.log(response);
+            if (response.trim() === "success") {
+                console.log("stored")
+            } else {
+                console.log("bug feature");
             }
-        };
-        xhr.open("POST", "addCars.php", true);
-        xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        xhr.send("saveCars=true&carName=" + carName + "&carBrand=" + carBrand + "&VehicleNumber=" + vehicleNumber + "&carType=" + carType);
-    }).catch(error => {
-        console.error('Error:', error);
-        alert("Image upload failed. Please try again.");
-    });
+        }
+    };
+    xhr.open("POST", "addCars.php", true);
+    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhr.send("saveCars=true&carName=" + carName + "&carBrand=" + carBrand + "&VehicleNumber=" + vehicleNumber + "&carType=" + carType + "&targetFile=" + targetFile);
 }
+
+// Function to handle the save button click
+function saveButton() {
+    // Call uploadImage first, then saveCars with the returned targetFile
+    uploadImage()
+        .then(targetFile => {
+            saveCars(targetFile);
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert("Image upload failed. Please try again.");
+        });
+}
+
 
