@@ -129,6 +129,23 @@ tr:nth-child(even) {
     background-color: royalblue;
 }
 
+.gobackBtn {
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    margin-left: 20px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none; /* Remove default underline */
+}
+
+.gobackBtn:hover {
+    opacity: 0.8;
+    background-color: #0056b3; /* Darker shade of blue on hover */
+}
+
+
 #deleteButton:hover  {
     opacity: 0.8; /* Reduce opacity on hover for Delete button */
     background-color: rgb(255, 0, 55);

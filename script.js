@@ -270,7 +270,8 @@ function fetchAndDisplayData() {
             console.log(data);
             generateROTableRows(data.orders);
             generateCarsTableRows(data.cars);
-            generateDMTableRows(data.messages)
+            generateDMTableRows(data.messages);
+            showCarimages(data.cars);
 
         });
 }
@@ -333,6 +334,21 @@ function generateDMTableRows(data) {
     });
 }
 
+function showCarimages(data) {
+    const listBody = document.getElementById('car-collection-list');
+    if (!listBody) return;
+    let i = 0;
+    data.forEach(item => {
+        const list = document.createElement('li');
+        list.innerHTML = `
+            <img src="image/${item.Image}" alt="Car ${++i} - ${item.Image}">
+            <i class='bx bx-dots-vertical-rounded' ></i>  
+        `;
+        listBody.appendChild(list);
+    });
+}
+
+
 
 fetchAndDisplayData();
 
@@ -382,6 +398,7 @@ function saveCars(targetFile) {
             console.log(response);
             if (response.trim() === "success") {
                 console.log("stored")
+                location.reload();
             } else {
                 console.log("bug feature");
             }
@@ -403,6 +420,7 @@ function saveButton() {
             console.error('Error:', error);
             alert("Image upload failed. Please try again.");
         });
+        
 }
 
 
