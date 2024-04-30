@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log In</title>
+    <link rel="stylesheet" href="log.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="logo">
+                <img src="icon/Black Modern Car Automotive Logo (1).png" alt="Vroom Logo">
+            </a>
+        </nav>
+    </header>
+    <div class="container">
+        <form id="loginForm" class="log-in-form" action="index2.html">
+            <h2>Get Code to login</h2>
+            <input id="username" type="text" placeholder="Username" required>
+            <input id="phoneNumber" type="text" placeholder="Phone number" required>
+            <button type="submit">Send Code</button>
+            <p class="sign-in"><a href="Log.html">Already have an account? Log In</a></p>
+            <p class="sign-in"><a href="Sign.html">Don't have an account? Sign up</a></p>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById("loginForm").addEventListener("submit", function(event) {
+            event.preventDefault(); 
+            
+           var username = document.getElementById("username").value;
+            var phoneNumber = document.getElementById("phoneNumber").value;
+            
+            console.log("Username:", username);
+            console.log("Phone Number:", phoneNumber);
+            
+            alert("Done");
+        });
+    </script>
+</body>
+</html>
