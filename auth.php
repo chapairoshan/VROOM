@@ -76,25 +76,7 @@ if(isset($_POST['contactus'])) {
     }
 }
 
-if(isset($_POST['saveCars'])) {
-    // saveCars=true&carName=" + carName + "&carBrand=" + carBrand + "&VehicleNumber=" + VehicleNumber + "&carType=" + carType);
-    $carName = $_POST['fullName'];
-    $carBrand = $_POST['address'];
-    $VehicleNumber = $_POST['email'];
-    $carType = $_POST['mobile'];
-    $image = $_POST['image'];
-    $password = $_POST['password'];
 
-    // Prepare and execute statement
-    $stmt = $conn->prepare("INSERT INTO Cars (CarName, CarBrand, CarType, VehicleNumber, Image) VALUES (?, ?, ?, ?, ?)");
-    $stmt->bind_param("sssss", $fullName, $address, $email, $mobile, $username, $hashed_password, $image);
-    if ($stmt->execute()) {
-        echo "success";
-    } else {
-        // Print error to console
-        echo "Error executing signup query: " . $conn->error;
-    }
-}
 
 $conn->close();
 ?>
