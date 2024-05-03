@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VROOM Car Rental Services Admin Panel</title>
+    <link rel="stylesheet" href="manage.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Managing Cars and Driver</h1>
+    </header>
+
+    <main>
+        <div class="actions">
+            <h2>Manage Cars</h2>
+            <button id="addCarButton">+ Add Car</button>
+        </div>
+    
+        <table id="carTable">
+            <thead>
+                <tr>
+                    <th>S. No.</th>
+                    <th>Car Name</th>
+                    <th>Car Brand</th>
+                    <th>Car Type</th>
+                    <th>Vehicle Number</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="cars-table-body">
+                <!-- cars -->
+            </tbody>
+        </table>
+    </main>
+    
+
+    <div id="carEditPopup" class="popup">
+        <div class="popup-content">
+            <span class="close-btn" id="closeBtn">&times;</span>
+            <h2 id="popupHeading">Add Cars</h2>
+            <div class="car-form" id="carForm">
+                <form id="carDetailsForm">
+                    <div class="form-group">
+                        <label for="image">Upload image:</label>
+                        <input type="file" id="image" name="image" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="carName">Car Name:</label>
+                        <input type="text" id="carName" name="carName" placeholder="Car name, e.g. Rav4" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="carBrand">Car Brand:</label>
+                        <input type="text" id="carBrand" name="carBrand" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="carType">Car Type:</label>
+                        <input type="text" id="carType" name="carType" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="vehicleNumber">Vehicle Number:</label>
+                        <input type="text" id="vehicleNumber" name="vehicleNumber" required>
+                    <button type="submit" id="saveCarBtn" onclick="saveButton()">Save Car</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+    <a href="admintask.html">
+        <i class='gobackBtn'>Go Back to Dashboard</i>
+    </a>
+    <!-- scripts -->
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const modal = document.getElementById("carEditPopup");
+            const span = document.querySelector(".close-btn");
+            const addCarBtn = document.getElementById("addCarButton");
+            const editCarBtns = document.querySelectorAll(".editButton");
+            const popupHeading = document.getElementById("popupHeading");
+            const carDetailsForm = document.getElementById("carDetailsForm");
+            const carNameInput = document.getElementById("carName");
+
+            function openModal(heading, action) {
+                popupHeading.textContent = heading;
+                carNameInput.disabled = action === 'Edit';
+
+                modal.style.display = "block";
+            }
+
+            addCarBtn.addEventListener("click", function() {
+                openModal("Add Car", 'Add');
+            });
+
+            editCarBtns.forEach(function(btn) {
+                btn.addEventListener("click", function() {
+                    openModal("Edit Car", 'Edit');
+                });
+            });
+
+            span.addEventListener("click", function() {
+                modal.style.display = "none";
+            });
+
+            window.addEventListener("click", function(event) {
+                if (event.target === modal) {
+                    modal.style.display = "none";
+                }
+            });
+
+            carDetailsForm.addEventListener('submit', function(event) {
+                event.preventDefault();
+                modal.style.display = "none";
+            });
+        });
+    </script>
+</body>
+</html>

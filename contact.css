@@ -1,0 +1,101 @@
+body {
+
+    background-image: url(icon/contact.jpg);
+    background-size: cover;
+    background-color: white;
+    
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: rgb(255 255 255 / 28%);
+    border-radius: 10px; 
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1); 
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 20px;
+}
+
+.image-contact {
+    grid-column: span 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-container {
+    grid-column: span 3;
+}
+
+.image-contact img {
+    max-width: 100%;
+    border-radius: 10px; /* Add rounded corners to the image */
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2); /* Add a subtle shadow to the image */
+}
+
+/* Style the form inputs */
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-top: 8px;
+    margin-bottom: 20px;
+    transition: border-color 0.3s ease-in-out;
+}
+
+/* Style the form inputs on focus */
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group textarea:focus {
+    border-color: #007bff;
+}
+
+/* Style the form button */
+button[type="submit"] {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 5px;
+    background-color: #273838;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+/* Style the form button on hover */
+button[type="submit"]:hover {
+    background-color: #0c0c0c;
+}
+
+footer {
+    color: white;
+    text-align: center;
+    padding: 10px;
+    display: contents;
+    
+    
+}

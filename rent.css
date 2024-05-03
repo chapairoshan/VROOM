@@ -1,0 +1,276 @@
+#order-section {
+  padding: 10px;
+  margin: 30px;
+}
+
+.center{
+  display: flex;
+  flex-wrap: nowrap;
+  /* flex-wrap: wrap; */
+  justify-content: space-around; 
+}
+
+.car-section {
+flex: 0 0 calc(33.33% - 10px); 
+margin-bottom: 10px;
+padding: 5px;
+/* Remove border */
+overflow: hidden;
+text-align: center;
+margin-right: 10px;
+}
+
+
+
+.car-section img:hover {
+transform: scale(1.1); 
+}
+
+.car-section img {
+width: 171px;
+height: 129px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+}
+
+.reserve-button {
+  background-color: #ffc107;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.info-button:hover {
+  background-color: #4e74dd; 
+}
+
+.info-button {
+  background-color: #1f2772;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.reserve-button:hover {
+  background-color: #ff9800; 
+}
+
+.brand-container {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  padding: 0px 47px;
+
+}
+
+
+
+.brand-section {
+flex: 0 0 calc(33.33% - 10px);
+margin-bottom: 20px;
+padding: 10px;
+overflow: hidden;
+text-align: center;
+margin-right: 10px;
+width: calc(33.33% - 10px);
+
+border-radius: 10px;
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+transition: transform 0.3s ease-in-out;
+border: none; 
+}
+
+.brand-section img {
+width: 100px;
+height: 100px;
+margin-left: 10px;
+border-radius: 10px;
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+transition: transform 0.3s ease-in-out;
+}
+
+.brand-section h3{
+color: black;
+}
+
+.brand-section:hover {
+transform: translateY(-5px);
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.brand-section img:hover {
+transform: scale(1.05);
+}
+
+
+
+
+@keyframes bounce {
+  0% {
+      transform: translateY(0);
+  }
+  100% {
+      transform: translateY(-10px);
+  }
+}
+
+.top{
+  display: flex;
+  flex-wrap: nowrap;
+  /* flex-wrap: wrap; */
+  justify-content: space-around; 
+}
+
+
+
+
+h2{
+  text-align: center;
+  font-size: 30px;
+}
+
+
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 10px;
+}
+
+footer p {
+  font-size: 0.8em;
+}
+
+/* this is the reserve button js css */
+#popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(255, 255, 255, 0.8); /* Transparent white background */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+  z-index: 10;
+  display: none;
+  max-width: 400px; 
+  width: 80%; 
+}
+
+
+.popup-content {
+  text-align: center;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 20px;
+  color: #888;
+  cursor: pointer;
+}
+
+form {
+  margin-top: 20px;
+}
+
+input[type="text"],
+input[type="email"],
+select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button[type="submit"] {
+  margin-top: 10px;
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+#popup label[for="rent-date"] {
+  display: block;
+  margin-top: 10px;
+  color: #333;
+}
+button[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+
+
+.parts-container{
+display: flex;
+flex-wrap: wrap;
+gap: 2rem;
+margin-top: 2rem;
+}
+
+.parts-container .box{
+flex: 1 1 17rem;
+position: relative;
+padding: 20px;
+display: flex;
+flex-direction: column;
+background: #f6f6f6;
+border-radius: 0.5rem;
+
+}
+
+.parts-container .box img{
+width: 100%;
+height: 150px;
+object-fit: contain;
+object-position: center;
+margin-bottom: 1rem;
+}
+
+.parts-container .box h2{
+font-size: 1.1rem;
+font-weight: 600;
+}
+
+.parts-container .box span{
+font-size: 1.1rem;
+font-weight: 600;
+color: var(--main-color);
+}
+
+.parts-container .box .bx{
+color: var(--main-color);
+margin: 0.8rem 0;
+}
+
+.parts-container .box .btn{
+max-width: 120px;
+
+}
+
+
+.parts-container .box .details{
+display: flex;
+align-items: center;
+position: absolute;
+bottom: 1.8rem;
+right: 1rem;
+font-size: 1rem;
+color: var(--text-color);
+}
+
+.parts-container .box .details:hover{
+color: var(--main-color);
+text-decoration: underline;
+}

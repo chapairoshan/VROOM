@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log In</title>
+    <link rel="stylesheet" href="log.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="logo">
+                <img src="icon/Black Modern Car Automotive Logo (1).png" alt="Vroom Logo">
+            </a>
+        </nav>
+    </header>
+    <div class="container">
+        <div id="loginForm" class="log-in-form">
+            <h2>Log In</h2>
+            <input id="loginUsername" type="text" placeholder="Username" required>
+            <input id="loginPassword" type="password" placeholder="Password" required>
+            <p id = "errorMessage">**Enter valid credentials**</p>
+            <button type="submit" onclick="login()">Log In</button>
+            <p class="forgot-password"><a href="forgot.html">Forgot Password?</a></p>
+            <p class="sign-in"><a href="Sign.html">Don't have account? Sign up</a></p>
+        </div>
+    </div>
+    <script> document.getElementById("errorMessage").style.display = "none"; </script>
+    <script src="script.js"> </script>
+</body>
+</html>

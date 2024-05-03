@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- Boxicons -->
+	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+	<link rel="stylesheet" href="use.css">
+
+
+
+
+
+	<title>User page</title>
+</head>
+<body>
+
+    <nav>
+        <a href="#" class="logo">
+            <img src="icon/Black Modern Car Automotive Logo (1).png" alt="Vroom Logo">
+        </a>
+        <a href="index2.html">Home</a>
+        <a href="About.html">About Us</a>
+        <a href="rent.html">Rent a Car</a>
+        <a href="contact.html">Contact us</a> 
+
+        <a href="user.html" class="user"><img src="icon/user.png" alt=""></a>
+        <a href="index.html" class="sign-in-btn">Sign Out</a>
+
+    </nav>
+</header>
+
+
+	<section id="sidebar">
+		<a href="#" class="brand">
+            <i class='bx bxs-user'></i>
+    		<span class="text">User Pannel</span>
+		</a>
+		<ul class="side-menu top">
+			<li class="active">
+				<a href="use.html">
+					<i class='bx bxs-dashboard' ></i>
+					<span class="text">Dashboard</span>
+				</a>
+			</li>
+			
+		</ul>
+
+	</section>
+<div class="password">
+    <form id="passwordForm" action="">
+        <h2>Change Password</h2>
+        <input id="currentPassword" type="password" placeholder="Current Password" required>
+        <input id="newPassword" type="password" placeholder="New Password" required>
+        <button type="submit">Change Password</button>
+    </form>
+</div>
+
+<script>
+    document.getElementById('passwordForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const currentPassword = document.getElementById('currentPassword').value;
+        const newPassword = document.getElementById('newPassword').value;
+
+        console.log('Current Password:', currentPassword);
+        console.log('New Password:', newPassword);
+
+    });
+</script>
+</body>
+</html>

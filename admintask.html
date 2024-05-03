@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- Boxicons -->
+	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+	<link rel="stylesheet" href="admintask.css">
+
+	<title>Admin Page</title>
+</head>
+<body>
+
+
+	<section id="sidebar">
+		<a href="#" class="brand">
+            <i class='bx bxs-user'></i>
+    		<span class="text">Admin Pannel</span>
+		</a>
+		<ul class="side-menu top">
+			<li class="active">
+				<a href="#box-info">
+					<i class='bx bxs-dashboard' ></i>
+					<span class="text">Dashboard</span>
+				</a>
+			</li>
+			<li>
+                <a href="#car-collection">
+                    <i class='bx bxs-car'></i>
+                    <span class="text">Car Collection</span>
+                </a>
+			</li>
+
+			<li>
+                    <a href="#message-panel">
+                        <i class='bx bxs-message-dots'></i>
+                        <span class="text">Message</span>
+                    </a>
+                
+			</li>
+			<li>
+				<a href="#Drivers">
+					<i class='bx bxs-group' ></i>
+					<span class="text">Available Drivers</span>
+				</a>
+			</li>
+            <li>
+				<a href="adminsett.html">
+					<i class='bx bxs-cog' ></i>
+					<span class="text">Settings</span>
+				</a>
+			</li>
+			<li>
+				<a href="Log.html" class="logout">
+					<i class='bx bxs-log-out-circle' ></i>
+					<span class="text">Logout</span>
+				</a>
+			</li>
+		</ul>
+
+	</section>
+	<section id="content">
+		<nav>
+			<a href="#" class="profile" id="profile-btn">
+
+				<img src="icon/priyanka.jpg" class="profile-img">
+
+			</a>
+		</nav>
+
+		<main>
+			<div class="head-title">
+				<div class="left">
+					<h1>Dashboard</h1>
+				</div>
+
+			</div>
+
+            <div id="profile-popup" class="popup">
+                <div class="popup-content">
+                    <span class="close">&times;</span>
+                    <h2>Profile</h2>
+                    <div class="profile-info">
+                        <p><strong>Name:</strong> Admin Name</p>
+                        <p><strong>Date of Birth:</strong> DD/MM/YYYY</p>
+                    </div>
+                </div>
+            </div>
+            
+
+			<ul class="box-info" id="box-info">
+
+				<li>
+					<i class='bx bxs-group' ></i>
+					<span class="text">
+						<h3>10</h3>
+						<p>Users</p>
+					</span>
+				</li>
+			</ul>
+
+
+			<div class="table-data">
+				<div class="order">
+					<div class="head">
+						<h3>Recent Orders</h3>
+				
+					</div>
+                    <!-- Table for most recent user orders -->
+					<table id="orders-table">
+                        <thead>
+                            <tr>
+                                <th>Username</th>
+                                <th>Phone Number</th>
+                                <th>Date Order Pickup</th>
+                                <th>Date Order Drop</th>
+                                <th>Car Selected</th>
+                                <th>Fuel Type</th>
+                                <th>Brand Selected</th>
+                            </tr>
+                        </thead>
+                        <tbody id="orders-table-body">
+                            <!--recent orders-->
+                        </tbody>
+                    </table>
+				</div>
+				<div class="car-collection" id="car-collection">
+                    <div class="head">
+                        <h3>Car Collection</h3>
+                        <a href="manage.html">
+                            <i class='bx bx-plus'></i>
+                          </a>
+                    </div>
+                    <ul id="car-collection-list">
+                        
+                    </ul>
+                </div>
+                <div class="Drivers" id="Drivers">
+                    <div class="head">
+                        <h3>Available Drivers</h3>
+                        <a href="manage.html">
+                            <i class='bx bx-plus'></i>
+                          </a>                    </div>
+                    <ul class="Drivers-collection-list">
+                        <li>
+                            <img src="driver/d1.jpg" alt="Car 1">
+                            <i class='bx bx-dots-vertical-rounded' ></i>
+                        </li>
+                        <li>
+                            <img src="driver/d2.jpg" alt="Car 2">
+                            <i class='bx bx-dots-vertical-rounded' ></i>
+                        </li>
+                        <li>
+                            <img src="driver/d3.jpg" alt="Car 3">
+                            <i class='bx bx-dots-vertical-rounded' ></i>
+                        </li>
+                        <li>
+                            <img src="driver/d3.jpg" alt="Car 4">
+                            <i class='bx bx-dots-vertical-rounded' ></i>
+                        </li>
+                        <li>
+                            <img src="driver/d4.jpg" alt="Car 5">
+                            <i class='bx bx-dots-vertical-rounded' ></i>
+                        </li>
+                    </ul>
+                </div>
+                
+                    <!-- Message Panel -->
+<div class="message-panel" id="message-panel">
+    <div class="head">
+        <h3>Customer Messages</h3>
+
+    </div>
+    <table class="message-table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Contact Number</th>
+                <th>Message</th>
+            </tr>
+        </thead>
+        <tbody id="messages-table-body">
+            <!--messages-->
+        </tbody>
+    </table>
+</div>
+		</main>	
+
+
+</section>
+
+	
+    <script src="script.js"></script>
+	<script>
+       const allSideMenu = document.querySelectorAll('#sidebar .side-menu.top li a');
+
+allSideMenu.forEach(item=> {
+	const li = item.parentElement;
+
+	item.addEventListener('click', function () {
+		allSideMenu.forEach(i=> {
+			i.parentElement.classList.remove('active');
+		})
+		li.classList.add('active');
+	})
+});
+
+// Add hover effect to sidebar links
+const sidebarLinks = document.querySelectorAll('#sidebar .side-menu.top li a');
+
+sidebarLinks.forEach(link => {
+    link.addEventListener('mouseenter', function () {
+        sidebarLinks.forEach(l => {
+            l.parentElement.classList.remove('active');
+        });
+        link.parentElement.classList.add('active');
+    });
+});
+
+
+// Get the popup and the button to open it
+const popup = document.getElementById('profile-popup');
+const profileBtn = document.getElementById('profile-btn');
+const closeBtn = document.querySelector('.close');
+
+// Open the popup when the button is clicked
+profileBtn.addEventListener('click', function() {
+    popup.style.display = 'block';
+});
+
+// Close the popup when the close button is clicked
+closeBtn.addEventListener('click', function() {
+    popup.style.display = 'none';
+});
+
+// Close the popup when clicking outside of it
+window.addEventListener('click', function(event) {
+    if (event.target === popup) {
+        popup.style.display = 'none';
+    }
+});
+
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.lol {
+    position: absolute;
+    top: 200px;
+    right: 40%;
+    background-color: #7d94db;
+    width: 221px;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.lol h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.lol p {
+    font-size: 18px;
+    text-align: center;
+}
+
+.table-container {
+    position: absolute;
+    bottom: 124px;
+    background-color: #f0f0f0;
+    left: 50%;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transform: translateX(-50%);
+    width: 80%;
+    max-width: 600px; /* Limiting maximum width */
+}
+
+
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0; /* Remove spacing between table cells */
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 6px; /* Reduce padding */
+    text-align: left;
+    font-size: 16px; /* Adjusted font size */
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}

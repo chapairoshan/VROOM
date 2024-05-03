@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- Boxicons -->
+	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+	<link rel="stylesheet" href="admintask.css">
+
+
+
+	<title>AdminHub</title>
+</head>
+<body>
+
+
+	<section id="sidebar">
+		<a href="#" class="brand">
+            <i class='bx bxs-user-detail'></i>
+    		<span class="text">Admin Pannel</span>
+		</a>
+		<ul class="side-menu top">
+			<li class="active">
+				<a href="admintask.html">
+					<i class='bx bxs-dashboard' ></i>
+					<span class="text">Dashboard</span>
+				</a>
+			</li>
+			
+			<li>
+				<a href="Log.html" class="logout">
+					<i class='bx bxs-log-out-circle' ></i>
+					<span class="text">Logout</span>
+				</a>
+			</li>
+		</ul>
+
+	</section>
+<div class="password">
+    <form id="passwordForm" action="">
+        <h2>Change Password</h2>
+        <input id="currentPassword" type="password" placeholder="Current Password" required>
+        <input id="newPassword" type="password" placeholder="New Password" required>
+        <button type="submit">Change Password</button>
+    </form>
+</div>
+
+<script>
+    document.getElementById('passwordForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const currentPassword = document.getElementById('currentPassword').value;
+        const newPassword = document.getElementById('newPassword').value;
+
+        console.log('Current Password:', currentPassword);
+        console.log('New Password:', newPassword);
+
+    });
+</script>
+</body>
+</html>
