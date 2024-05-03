@@ -29,15 +29,15 @@ if (isset($_FILES['image'])) {
     // Get the temporary filename of the uploaded file
     $tempFile = $_FILES['image']['tmp_name'];
 
+    $fileName = uniqid() . '_' . $_FILES['image']['name'];
+
     // Generate a unique filename to avoid overwriting existing files
-    $filename = uniqid() . '_' . $_FILES['image']['name'];
-    $targetFile = $uploadDirectory . $filename;
+    $targetFile = $uploadDirectory . $fileName;
 
     // Move the uploaded file to the specified directory
     if (move_uploaded_file($tempFile, $targetFile)) {
         // Image uploaded successfully
-        $filename = basename($targetFile); // Extract only the filename
-        echo json_encode(["success" => true, "targetFile" => $filename]); // Return success and targetFile
+        echo json_encode(["success" => true, "fileName" => $fileName]); // Return success and targetFile
     } else {
         // Error uploading image
         echo json_encode(["success" => false, "error" => "Error uploading image"]);
@@ -51,11 +51,11 @@ if (isset($_POST['saveCars'])) {
     $carType = $_POST['carType'];
 
     // Get the targetFile value from the POST data
-    $targetFile = isset($_POST['targetFile']) ? $_POST['targetFile'] : "";
+    $fileName = isset($_POST['fileName']) ? $_POST['fileName'] : "";
 
     // Prepare and execute statement
     $stmt = $conn->prepare("INSERT INTO Cars (CarName, CarBrand, CarType, VehicleNumber, Image) VALUES (?, ?, ?, ?, ?)");
-    $stmt->bind_param("sssss", $carName, $carBrand, $carType, $VehicleNumber, $targetFile);
+    $stmt->bind_param("sssss", $carName, $carBrand, $carType, $VehicleNumber, $fileName);
     if ($stmt->execute()) {
         echo "success";
     } else {
