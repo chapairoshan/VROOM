@@ -31,11 +31,7 @@ li {
 	--grey: #eee;
 	--dark-grey: #AAAAAA;
 	--dark: #342E37;
-	--red: #DB504A;
-	--yellow: #FFCE26;
-	--light-yellow: #FFF2C6;
-	--orange: #FD7238;
-	--light-orange: #FFE0D3;
+
 }
 
 html {
@@ -649,6 +645,87 @@ body {
     }
   }
 
+  @media screen and (max-width: 768px) {
+    .loyalty-panel .head {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+/* For screens smaller than 576px */
+@media screen and (max-width: 576px) {
+  /* Hide navigation links */
+  #content nav .nav-link {
+      display: none;
+  }
+
+  /* Adjust form input and button */
+  #content nav form .form-input input {
+      display: none;
+  }
+
+  #content nav form .form-input button {
+      width: auto;
+      height: auto;
+      background: transparent;
+      border-radius: none;
+      color: var(--dark);
+  }
+
+  /* Show search input when form is expanded */
+  #content nav form.show .form-input input {
+      display: block;
+      width: 100%;
+  }
+
+  /* Hide notification and profile icons */
+  #content nav form.show ~ .notification,
+  #content nav form.show ~ .profile {
+      display: none;
+  }
+
+  /* Adjust box-info layout to single column */
+  #content main .box-info {
+      grid-template-columns: 1fr;
+  }
+
+  /* Ensure table headers have sufficient width */
+  #content main .table-data .head,
+  #content main .table-data .order table,
+  #content main .table-data .car-collection .car-collection-list {
+      min-width: 420px;
+  }
+}
+
+/* For screens smaller than 768px */
+@media screen and (max-width: 768px) {
+
+  #sidebar {
+      width: 200px;
+  }
+
+  #content {
+      width: calc(100% - 200px);
+      left: 200px;
+  }
+
+
+  #content nav .nav-link {
+      display: none;
+  }
+}
+
+/* Additional responsive adjustments */
+@media screen and (max-width: 768px) {
+  /* Adjust loyalty panel header layout */
+  .loyalty-panel .head {
+      flex-direction: column;
+      align-items: flex-start;
+  }
+}
+
+
+
   
   .profile-img {
     width: 20%;
@@ -732,6 +809,18 @@ body {
     font-size: 24px;
     color: var(--dark);
   }
+
+
+  .loyalty-panel .head p {
+    font-size: 1rem;
+    color: #666;
+    font-weight: bold;
+    margin-top: 0;
+}
+
+.loyalty-panel .head p span {
+    color: #ff9900; 
+}
   
   #loyalty-panel .loyalty-list {
     list-style: none;
@@ -935,3 +1024,4 @@ nav a:hover {
     display: inline-block;
     width: 20px; 
 }
+
