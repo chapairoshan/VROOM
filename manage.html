@@ -12,11 +12,17 @@
         <h1>Managing Cars and Driver</h1>
     </header>
 
+
     <main>
+        <a href="admintask.html">
+            <i class='gobackBtn'>Go Back to Dashboard</i>
+        </a>
         <div class="actions">
             <h2>Manage Cars</h2>
             <button id="addCarButton">+ Add Car</button>
         </div>
+
+      
     
         <table id="carTable">
             <thead>
@@ -91,10 +97,14 @@
 
 <div id="driverEditPopup" class="popup">
 <div class="popup-content">
-    <span class="close-btn" id="closeBtnDriver">&times;</span>
+    <span class="close-btn" id="close-Btn-Driver">&times;</span>
     <h2 id="popupHeadingDriver">Add Driver</h2>
     <div class="car-form" id="driverForm">
         <form id="driverDetailsForm">
+            <div class="form-group">
+                <label for="image">Upload image:</label>
+                <input type="file" id="image" name="image" required>
+            </div>
             <div class="form-group">
                 <label for="driverName">Driver Name:</label>
                 <input type="text" id="driverName" name="driverName" placeholder="Driver name, e.g. John Doe" required>
@@ -108,9 +118,7 @@
 </div>
 </div>
 </div>
-    <a href="admintask.html">
-        <i class='gobackBtn'>Go Back to Dashboard</i>
-    </a>
+
     <script src="script.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
@@ -158,7 +166,7 @@
 
         document.addEventListener("DOMContentLoaded", function() {
             const modalDriver = document.getElementById("driverEditPopup");
-            const spanDriver = document.querySelector(".close-btn-driver");
+            const spanDriver = document.querySelector(".closse-btn-driver");
             const addDriverBtn = document.getElementById("addDriverButton");
             const popupHeadingDriver = document.getElementById("popupHeadingDriver");
             const driverDetailsForm = document.getElementById("driverDetailsForm");
