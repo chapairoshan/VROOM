@@ -9,6 +9,22 @@
 	<link rel="stylesheet" href="admintask.css">
 
 	<title>Admin Page</title>
+    <style> 
+    .goback-btn {
+        display: block;
+        margin-top: 20px;
+        text-align: center;
+        padding: 10px 20px;
+        background-color: #000;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+    }
+    .goback-btn:hover {
+        background-color: #555;
+    }
+    </style>
 </head>
 <body>
 
@@ -166,26 +182,25 @@
                     </ul>
                 </div>
                 
-                    <!-- Message Panel -->
-<div class="message-panel" id="message-panel">
-    <div class="head">
-        <h3>Customer Messages</h3>
-
-    </div>
-    <table class="message-table">
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Contact Number</th>
-                <th>Message</th>
-            </tr>
-        </thead>
-        <tbody id="messages-table-body">
-            <!--messages-->
-        </tbody>
-    </table>
-</div>
+                    <div class="message-panel" id="message-panel">
+                        <div class="head">
+                            <h3>Customer Messages</h3>
+                            <a href="Message.html" class="goback-btn">View all the messages</a>
+                        </div>
+                        <table class="message-table">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Contact Number</th>
+                                    <th>Message</th>
+                                </tr>
+                            </thead>
+                            <tbody id="messages-table-body">
+                            </tbody>
+                        </table>
+                    </div>
+                    
 		</main>	
 
 
@@ -207,7 +222,6 @@ allSideMenu.forEach(item=> {
 	})
 });
 
-// Add hover effect to sidebar links
 const sidebarLinks = document.querySelectorAll('#sidebar .side-menu.top li a');
 
 sidebarLinks.forEach(link => {
@@ -220,22 +234,18 @@ sidebarLinks.forEach(link => {
 });
 
 
-// Get the popup and the button to open it
 const popup = document.getElementById('profile-popup');
 const profileBtn = document.getElementById('profile-btn');
 const closeBtn = document.querySelector('.close');
 
-// Open the popup when the button is clicked
 profileBtn.addEventListener('click', function() {
     popup.style.display = 'block';
 });
 
-// Close the popup when the close button is clicked
 closeBtn.addEventListener('click', function() {
     popup.style.display = 'none';
 });
 
-// Close the popup when clicking outside of it
 window.addEventListener('click', function(event) {
     if (event.target === popup) {
         popup.style.display = 'none';

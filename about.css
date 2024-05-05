@@ -16,14 +16,6 @@ footer p {
 }
 
 
-@media only screen and (max-width: 600px) {
-    .founder-colage img {
-        width: 100%;
-        padding: 5px;
-    }
-}
-
-
 
 
 
@@ -163,3 +155,20 @@ footer p {
     margin-bottom: 1rem;
     color: var(--text-light);
   }
+
+  @media only screen and (max-width: 600px) {
+    .founder-colage img {
+        width: 100%;
+        padding: 5px;
+    }
+}
+
+
+@media only screen and (min-width: 768px) and (max-width: 992px) {
+  .why__container {
+    grid-template-columns: repeat(1, 1fr);
+  .founders__grid {
+    grid-template-columns: repeat(2, 1fr); 
+}
+  }
+}

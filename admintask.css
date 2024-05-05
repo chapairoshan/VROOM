@@ -545,6 +545,53 @@ body {
 	}
 }
 
+@media screen and (max-width: 768px) {
+  #sidebar {
+      width: 200px;
+  }
+
+  #content {
+      width: calc(100% - 200px);
+      left: 200px;
+  }
+
+  .nav-link {
+      display: none;
+  }
+
+  h1, h2, h3 {
+      font-size: 20px;
+  }
+
+  .box-info li {
+      padding: 15px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  #sidebar {
+      width: 100px;
+  }
+
+  #content {
+      width: calc(100% - 100px);
+      left: 100px;
+  }
+
+  .notification {
+      display: none;
+  }
+
+  h1, h2, h3 {
+      font-size: 18px;
+  }
+
+  .box-info li {
+      padding: 10px;
+  }
+}
+
+
 
 
 
@@ -849,3 +896,4 @@ body {
 .password button:hover {
     background-color: #555;
 }
+
