@@ -113,6 +113,10 @@ if (carSections) {
     });
 }
 
+function loginSuccess(message){
+    
+}
+
 function login() {
     document.getElementById("errorMessage").style.display = "none";
     var username = document.getElementById('loginUsername').value;
@@ -140,8 +144,9 @@ function login() {
                 var response = this.responseText;
                 if (response.trim() === "success") {
                     if(username==="admin"){
+                        let message = "Admin login successful";
+                        loginSuccess(message);
                         window.location.replace("admintask.html");
-                        alert("Admin login successful");
                         return;
                     }
                     window.location.replace("index2.html");
