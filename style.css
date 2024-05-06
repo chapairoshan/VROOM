@@ -177,11 +177,12 @@ nav a:hover {
 
 .home-text p{
     font-size: 0.938rem;
-    font-weight: 300;
+    font-weight: 400;
     margin: 0.5rem 0 1.2rem;
-    color: #b9908c;
-
+    color: #d5bdbb;
 }
+
+
 
 .btn{
     padding: 10px 22px;
@@ -191,6 +192,8 @@ nav a:hover {
     color: white;
     font-weight: 400;
     border: 1px solid;
+    margin-left: 207px;
+
 }
 
 
@@ -291,7 +294,7 @@ nav a:hover {
   }
 
 h2 {
-    font-size: 1.8em;
+    font-size: 1.9em;
     margin-bottom: 10px;
     text-align: center;
     margin-top: 42px;
@@ -321,7 +324,7 @@ nav p {
 }
 
 p {
-    font-size: 1.2em;
+    font-size: 1.3em;
     color: #666;
     line-height: 1.6;
     padding: 0 10px;
@@ -353,7 +356,7 @@ footer p {
 /* this is the reserve button js css */
 #popup {
     position: absolute;
-    top: 50%;
+    top: 60%;
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: rgba(255, 255, 255, 0.8); /* Transparent white background */

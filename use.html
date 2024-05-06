@@ -11,6 +11,25 @@
 
 
 	<title>User Page</title>
+    <style>
+    .cancel-btn {
+    display: inline-block; 
+    margin-top: 20px;
+    text-align: center;
+    padding: 5px 10px; 
+    background-color: #000;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    font-size: 14px; 
+}
+
+.cancel-btn:hover {
+    background-color: #555;
+}
+
+    </style>
 </head>
 <body>
     <nav>
@@ -41,7 +60,14 @@
 			<li>
                 <a href="#Bookings">
                     <i class='bx bxs-book'></i>
-                    <span class="text">Bookings</span>
+                    <span class="text"> Current Booking</span>
+                </a>
+			</li>
+
+            <li>
+                <a href="#Bookings">
+                    <i class='bx bxs-book'></i>
+                    <span class="text">Recent Bookings</span>
                 </a>
 			</li>
 
@@ -90,7 +116,45 @@
                 </div>
             </div>
             
+            <div class="table-data" id="Bookings">
+				<div class="order">
+					<div class="head">
+						<h3>Current Order</h3>
+				
+					</div>
+					<table>
+						<thead>
+							<tr>
+								<th>No.</th>
+								<th>Phone Number</th>
+								<th>Date Order Pickup</th>
+                                <th>Date Order Drop</th>
+								<th>Car Selected</th>
+                                <th>Fuel Type</th>
+                                <th>Brand Selected</th>
 
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+                                <td>1</td>
+
+                                <td>987465256</td>
+								<td>01-10-2021</td>
+                                <td>01-10-2021</td>
+
+                                <td>Sedans</td>
+                                <td>Petrol</td>
+                                <td>Kia</td>
+
+
+                            </tr>
+						
+						</tbody>
+					</table>
+                    <a href="#" class="cancel-btn">Cancel order</a>
+
+                </div>
 
 			<div class="table-data" id="Bookings">
 				<div class="order">
