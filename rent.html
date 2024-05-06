@@ -52,120 +52,103 @@
     <div id="popup" class="hidden">
         <div class="popup-content">
             <span class="close-btn" onclick="closePopup()">&times;</span>
-            <form>
-                <input type="text" placeholder="Name">
-                <input type="email" placeholder="Email">
-                <input type="text" placeholder="Phone Number">
+            <form id="reservation-form">
+                <input type="text" placeholder="Name" id="cName">
+                <input type="email" placeholder="Email" id="cEmail">
+                <input type="text" placeholder="Phone Number" id="cMobile">
                 <label for="car-type">Select Car Type:</label>
-                <select id="car-type" name="car-type">
-                    <option value="economy">Economy</option>
-                    <option value="sedan">Sedan</option>
-                    <option value="suv">SUV</option>
-                </select>
-                <label for="car-type">Select Brand Type:</label>
-                <select id="brand-type" name="brand-type">
-                    <option value="byd">BYD</option>
-                    <option value="toyota">Toyota</option>
-                    <option value="hyundai">Hyundai</option>
-                    <option value="kia">Kia</option>
-
-
-                </select>
-                <label for="car-type">Select Fuel Type:</label>
-                <select id="fuel-type" name="fuel-type">
-                    <option value="Petrol">Petrol</option>
-                    <option value="Electric">Electric</option>
-                </select>
+                <select id="car-type" name="car-type"></select>
+                <label for="car-brand">Select Brand Type:</label>
+                <select id="car-brand" name="car-brand"></select>
+                <label for="fuel-type">Select Fuel Type:</label>
+                <select id="fuel-type" name="fuel-type"></select>
                 <br>
-                <label for="rent-date">Select Pickup Date:</label>
-                <input type="date" id="rent-date" name="rent-date">
-                <label for="rent-date">Select Drop Date:</label>
-                <input type="date" id="rent-date" name="rent-date"><br>
-                <button type="submit">Submit</button>
+                <label for="pickup-date">Select Pickup Date:</label>
+                <input type="date" id="pickup-date" name="pickup-date" required>
+                <label for="drop-date">Select Drop Date:</label>
+                <input type="date" id="drop-date" name="drop-date" required><br>
+                <button onclick="saveOrder()">Submit</button>
             </form>
         </div>
     </div>
+    
 
     <h2>Brands available</h2>
 
-     
+    <!--parts container-->
+    <div class="parts-container container">
+        <!--Box 1-->
 
-                <!--parts container-->
-                <div class="parts-container container">
-                    <!--Box 1-->
-        
-                    <div class="box">
-                        <img src="icon/bmw.jpg" alt="">
-                        <h3>BMW</h3>
-                        <span>Nrs 12000</span>
-                        <a href="#" class="btn">Buy Now</a>
-                        <a href="#" class="details">View Details</a>
-                    </div>
-        
-                       <!--Box 2-->
-        
-                       <div class="box">
-                        <img src="icon/tesla.jpg" alt="">
-                        <h3>Teesla</h3>
-                        <span>Nrs 12000</span>
-                        <a href="#" class="btn">Buy Now</a>
-                        <a href="#" class="details">View Details</a>
-                    </div>
-        
-                       <!--Box 3-->
-        
-                       <div class="box">
-                        <img src="icon/hyundai.png" alt="">
-                        <h3>Hyundai</h3>
-                        <span>Nrs 10000</span>
-                        <a href="#" class="btn">Buy Now</a>
-                        <a href="#" class="details">View Details</a>
-                    </div>
-        
-                       <!--Box 4-->
-        
-                       <div class="box">
-                        <img src="icon/kia.png" alt="">
-                        <h3>kia</h3>
-                        <span>Nrs 7000</span>
-                        <a href="#" class="btn">Buy Now</a>
-                        <a href="#" class="details">View Details</a>
-                    </div>
-        
-                       <!--Box 5-->
-        
-                       <div class="box">
-                        <img src="icon/byd.png" alt="">
-                        <h3>BYD</h3>
-                        <span>Nrs 9000</span>
-                        <a href="#" class="btn">Buy Now</a>
-                        <a href="#" class="details">View Details</a>
-                    </div>
-        
-                       <!--Box 6-->
-        
-                       <div class="box">
-                        <img src="icon/toyo.png" alt="">
-                        <h3>Toyota</h3>
-                        <span>Nrs 8000</span>
-                        <a href="#" class="btn">Buy Now</a>
-                        <a href="#" class="details">View Details</a>
-                    </div>
-                </div>
-            </section>
-    
+        <div class="box">
+            <img src="icon/bmw.jpg" alt="">
+            <h3>BMW</h3>
+            <span>Nrs 12000</span>
+            <a href="#" class="btn">Buy Now</a>
+            <a href="#" class="details">View Details</a>
+        </div>
 
-        <section class="contact-container">
-            <div class="contact-details">
-                <h3>Contact Us</h3>
-                <p>Have a question or need assistance? Feel free to reach out to us!</p>
-            </div>
-            <div class="contact-info">
-                <div>
-                    <a href="https://www.google.com/maps/place/%E0%A4%9C%E0%A5%8B%E0%A4%B0%E0%A4%AA%E0%A4%BE%E0%A4%9F%E0%A5%80+%E0%A4%9A%E0%A5%8B%E0%A4%95+%E0%A4%B8%E0%A4%B9%E0%A4%BF%E0%A4%A6+%E0%A4%AA%E0%A4%BE%E0%A4%B0%E0%A5%8D%E0%A4%95/@27.7217996,85.3701227,17z/data=!3m1!4b1!4m6!3m5!1s0x39eb1bc6ffd38131:0x3eff7b6b7eedd676!8m2!3d27.7217949!4d85.3726976!16s%2Fg%2F11c1wwvnqr?entry=ttu" target="_blank">
-                        <img src="icon/location.png" alt="Address on Map">
-                        <p>123 Street, City, Country</p>
-                    </a>
+        <!--Box 2-->
+
+        <div class="box">
+            <img src="icon/tesla.jpg" alt="">
+            <h3>Tesla</h3>
+            <span>Nrs 12000</span>
+            <a href="#" class="btn">Buy Now</a>
+            <a href="#" class="details">View Details</a>
+        </div>
+
+        <!--Box 3-->
+
+        <div class="box">
+            <img src="icon/hyundai.png" alt="">
+            <h3>Hyundai</h3>
+            <span>Nrs 10000</span>
+            <a href="#" class="btn">Buy Now</a>
+            <a href="#" class="details">View Details</a>
+        </div>
+
+        <!--Box 4-->
+
+        <div class="box">
+            <img src="icon/kia.png" alt="">
+            <h3>Kia</h3>
+            <span>Nrs 7000</span>
+            <a href="#" class="btn">Buy Now</a>
+            <a href="#" class="details">View Details</a>
+        </div>
+
+        <!--Box 5-->
+
+        <div class="box">
+            <img src="icon/byd.png" alt="">
+            <h3>BYD</h3>
+            <span>Nrs 9000</span>
+            <a href="#" class="btn">Buy Now</a>
+            <a href="#" class="details">View Details</a>
+        </div>
+
+        <!--Box 6-->
+
+        <div class="box">
+            <img src="icon/toyo.png" alt="">
+            <h3>Toyota</h3>
+            <span>Nrs 8000</span>
+            <a href="#" class="btn">Buy Now</a>
+            <a href="#" class="details">View Details</a>
+        </div>
+    </div>
+
+    <section class="contact-container">
+        <div class="contact-details">
+            <h3>Contact Us</h3>
+            <p>Have a question or need assistance? Feel free to reach out to us!</p>
+        </div>
+        <div class="contact-info">
+            <div>
+                <a href="https://www.google.com/maps/place/%E0%A4%9C%E0%A5%8B%E0%A4%B0%E0%A4%AA%E0%A4%BE%E0%A4%9F%E0%A5%80+%E0%A4%9A%E0%A5%8B%E0%A4%95+%E0%A4%B8%E0%A4%B9%E0%A4%BF%E0%A4%A6+%E0%A4%AA%E0%A4%BE%E0%A4%B0%E0%A5%8D%E0%A4%95/@27.7217996,85.3701227,17z/data=!3m1!4b1!4m6!3m5!1s0x39eb1bc6ffd38131:0x3eff7b6b7eedd676!8m2!3d27.7217949!4d85.3726976!16s%2Fg%2F11c1wwvnqr?entry=ttu" target="_blank">
+                    <img src="icon/location.png" alt="Address on Map">
+                    <p>123 Street, City, Country</p>
+                </a>
                 <div>
                     <p>+1234567890</p>
                 </div>
@@ -173,39 +156,19 @@
                     <p>info@example.com</p>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <footer>
-            <div class="social-media-links">
-                <a href="https://www.instagram.com/snehascare/" target="_blank">
-                    <img src="icon/instagram.png" alt="Instagram">
-                </a>
-                <a href="https://www.facebook.com/" target="_blank">
-                    <img src="icon/facebook.png" alt="Facebook">
-                </a>
-            </div>
-            <p>&copy; 2024 Vroom. All rights reserved.</p>
-        </footer>
-    <script>
-        function showDescription(carType) {
-            let description = document.getElementById('car-description');
-            let title = document.getElementById('car-title');
-            let info = document.getElementById('car-info');
-
-            if (carType === 'SUV') {
-                title.textContent = 'SUV';
-                info.textContent = 'SUVs are a type of vehicle that combines elements of a traditional passenger car with features from off-road vehicles, such as higher ground clearance and four-wheel drive capabilities. They often offer more space and versatility compared to sedans or hatchbacks. SUVs are a type of vehicle that combines elements of a traditional passenger car with features from off-road vehicles, such as higher ground clearance and four-wheel drive capabilities. They often offer more space and versatility compared to sedans or hatchbacks.';
-            } else if (carType === 'Sedans') {
-                title.textContent = 'Sedans';
-                info.textContent = 'Sedans are passenger cars with separate compartments for engine, passenger, and cargo, typically characterized by two rows of seating and a fixed roof. They are designed primarily for passenger transportation rather than cargo or towing.Overall, sedans offer a versatile and practical choice for individuals and families seeking comfortable and efficient transportation. They are available in a wide range of sizes, styles, and price points to suit various preferences and budgets.';
-            } else if (carType === 'Economy') {
-                title.textContent = 'Economy Cars';
-                info.textContent = 'Economy vehicles are compact cars that prioritize cost-effectiveness in terms of purchase price, fuel efficiency, and maintenance. They are typically smaller in size, making them easy to maneuver and park in urban environments.Overall, economy vehicles are an excellent choice for individuals seeking affordable and fuel-efficient transportation without compromising on reliability or practicality. They are particularly well-suited for commuters, students, and city dwellers looking to minimize their transportation expenses.';
-            }
-
-            description.classList.remove('hidden');
-        }
-     </script>
+    <footer>
+        <div class="social-media-links">
+            <a href="https://www.instagram.com/snehascare/" target="_blank">
+                <img src="icon/instagram.png" alt="Instagram">
+            </a>
+            <a href="https://www.facebook.com/" target="_blank">
+                <img src="icon/facebook.png" alt="Facebook">
+            </a>
+        </div>
+        <p>&copy; 2024 Vroom. All rights reserved.</p>
+    </footer>
 </body>
-
 </html>
