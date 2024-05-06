@@ -114,7 +114,10 @@ if (carSections) {
 }
 
 function loginSuccess(message){
-    
+    var popup = document.getElementById('successPopup');
+    var messageElement = document.getElementById('popupMessage');
+    messageElement.textContent = message; // Set the message content
+    popup.style.display = 'block';
 }
 
 function login() {
@@ -146,7 +149,7 @@ function login() {
                     if(username==="admin"){
                         let message = "Admin login successful";
                         loginSuccess(message);
-                        window.location.replace("admintask.html");
+                        setTimeout(window.location.replace("admintask.html"), 5000);
                         return;
                     }
                     window.location.replace("index2.html");
