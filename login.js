@@ -30,8 +30,10 @@ function login() {
                     if(username === "admin") {
                         let message = "Admin login successful";
                         loginSuccess(message);
-                        setTimeout(redirect(), 5000);
-                        window.location.replace("admintask.html");
+                        setTimeout(() => {
+                            window.location.replace("admintask.html");
+                        }, 3000);
+                        
                     } else {
                         // Set session variable in localStorage
                         localStorage.setItem("username", username);
