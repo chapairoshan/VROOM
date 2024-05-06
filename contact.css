@@ -6,6 +6,11 @@ body {
     
 }
 
+.contact {
+    background-color: white;
+    color: black;
+  }
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;

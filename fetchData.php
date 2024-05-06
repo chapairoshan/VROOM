@@ -30,6 +30,11 @@ if ($result->num_rows > 0) {
 //     }
 // }
 
+$sql - "SELECT * FROM LoyaltyPoints"
+$result = $conn->query(sql);
+
+$loyalty = array()
+
 $sql = "SELECT * FROM PreviousOrders";
 $result = $conn->query($sql);
 

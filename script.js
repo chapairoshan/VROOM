@@ -149,7 +149,8 @@ function login() {
                     if(username==="admin"){
                         let message = "Admin login successful";
                         loginSuccess(message);
-                        setTimeout(window.location.replace("admintask.html"), 5000);
+                        setTimeout(redirect(), 5000);
+                        window.location.replace("admintask.html");
                         return;
                     }
                     window.location.replace("index2.html");
@@ -304,6 +305,10 @@ function generateROTableRows(data) {
     });
 }
 
+function getRD(){
+    
+}
+
 function generateCarsTableRows(data) {
     const tableBody = document.getElementById('cars-table-body');
     if (!tableBody) return;
@@ -413,7 +418,7 @@ function saveCars(fileName) {
     };
     xhr.open("POST", "addCars.php", true);
     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xhr.send("saveCars=true&carName=" + carName + "&carBrand=" + carBrand + "&VehicleNumber=" + vehicleNumber + "&carType=" + carType + "&fileName=" + fileName);
+    xhr.send("saveCars=false&carName=" + carName + "&carBrand=" + carBrand + "&VehicleNumber=" + vehicleNumber + "&carType=" + carType + "&fileName=" + fileName);
 }
 
 // Function to handle the save button click
