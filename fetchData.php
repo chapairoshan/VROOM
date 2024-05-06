@@ -20,15 +20,18 @@ if ($result->num_rows > 0) {
     }
 }
 
-// $sql = "SELECT * FROM Drivers";
-// $result = $conn->query($sql);
+// Uncomment if needed
+/*
+$sql = "SELECT * FROM LoyaltyPoints";
+$result = $conn->query($sql);
 
-// $drivers = array();
-// if ($result->num_rows > 0) {
-//     while($row = $result->fetch_assoc()) {
-//         $drivers[] = $row;
-//     }
-// }
+$loyalty = array();
+if ($result->num_rows > 0) {
+    while($row = $result->fetch_assoc()) {
+        $loyalty[] = $row;
+    }
+}
+*/
 
 $sql = "SELECT * FROM PreviousOrders";
 $result = $conn->query($sql);

@@ -2,8 +2,61 @@ console.log("file accessed! 1")
 
 function openPopup() {
     const popup = document.getElementById("popup");
+    if (!popup) {
+        console.error("Popup element not found.");
+        return;
+    }
     popup.style.display = "block";
+
+    fetch('fetchData.php')
+        .then(response => response.json())
+        .then(data => {
+            if (!data || !data.cars) {
+                console.error("Data is invalid:", data);
+                return;
+            }
+
+            // Function to populate select options
+            function populateSelect(selectId, options) {
+                let select = document.getElementById(selectId);
+                if (!select) {
+                    console.error("Select element not found:", selectId);
+                    return;
+                }
+                options.forEach(option => {
+                    let optionElement = document.createElement("option");
+                    optionElement.value = option;
+                    optionElement.textContent = option;
+                    select.appendChild(optionElement);
+                });
+            }
+
+            // Extract unique car types, brands, and names from the data
+            let carNames = [];
+            let carBrands = [];
+            let carTypes = [];
+            data.cars.forEach(car => {
+                if (!carNames.includes(car.CarName)) {
+                    carNames.push(car.CarName);
+                }
+                if (!carBrands.includes(car.CarBrand)) {
+                    carBrands.push(car.CarBrand);
+                }
+                if (!carTypes.includes(car.CarType)) {
+                    carTypes.push(car.CarType);
+                }
+            });
+
+            // Populate select options
+            populateSelect("car-type", carNames);
+            populateSelect("car-brand", carBrands);
+            populateSelect("fuel-type", carTypes);
+        })
+        .catch(error => {
+            console.error("Error fetching data:", error);
+        });
 }
+
 
 function closePopup() {
     const popup = document.getElementById("popup");
@@ -113,53 +166,62 @@ if (carSections) {
     });
 }
 
-function login() {
-    document.getElementById("errorMessage").style.display = "none";
-    var username = document.getElementById('loginUsername').value;
-    var password = document.getElementById('loginPassword').value;
-    var errorMessage = document.getElementById("errorMessage");
-
-    if (!isValidUsername(username)) {
-        document.getElementById('loginUsername').setAttribute("placeholder", "Enter a valid username");
-        errorMessage.innerText = "**Enter a valid username**";
-        errorMessage.style.display = "block";
-        return;
-    } 
-
-    if (!isValidPassword(password)) {
-        document.getElementById('loginPassword').setAttribute("placeholder", "Enter a valid password");
-        errorMessage.innerText = "**Enter a valid password**";
-        errorMessage.style.display = "block";
-        return;
-    }
-
-    var xhr = new XMLHttpRequest();
-    xhr.onreadystatechange = function() {
-        if (this.readyState == 4) {
-            if (this.status == 200) {
-                var response = this.responseText;
-                if (response.trim() === "success") {
-                    if(username==="admin"){
-                        window.location.replace("admintask.html");
-                        alert("Admin login successful");
-                        return;
-                    }
-                    window.location.replace("index2.html");
-                    alert("Login successful");
-                } else {
-                    errorMessage.innerText = "**Invalid username or password**";
-                    errorMessage.style.display = "block";
-                    return;
-                }
-            } else {
-                alert("An error occurred while processing your request.");
-            }
-        }
-    };
-    xhr.open("POST", "auth.php", true);
-    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xhr.send("login=true&username=" + encodeURIComponent(username) + "&password=" + encodeURIComponent(password));
+function loginSuccess(message){
+    var popup = document.getElementById('successPopup');
+    var messageElement = document.getElementById('popupMessage');
+    messageElement.textContent = message; // Set the message content
+    popup.style.display = 'block';
 }
+
+// function login() {
+//     document.getElementById("errorMessage").style.display = "none";
+//     var username = document.getElementById('loginUsername').value;
+//     var password = document.getElementById('loginPassword').value;
+//     var errorMessage = document.getElementById("errorMessage");
+
+//     if (!isValidUsername(username)) {
+//         document.getElementById('loginUsername').setAttribute("placeholder", "Enter a valid username");
+//         errorMessage.innerText = "**Enter a valid username**";
+//         errorMessage.style.display = "block";
+//         return;
+//     } e
+
+//     if (!isValidPassword(password)) {
+//         document.getElementById('loginPassword').setAttribute("placeholder", "Enter a valid password");
+//         errorMessage.innerText = "**Enter a valid password**";
+//         errorMessage.style.display = "block";
+//         return;
+//     }
+
+//     var xhr = new XMLHttpRequest();
+//     xhr.onreadystatechange = function() {
+//         if (this.readyState == 4) {
+//             if (this.status == 200) {
+//                 var response = this.responseText;
+//                 if (response.trim() === "success") {
+//                     if(username==="admin"){
+//                         let message = "Admin login successful";
+//                         loginSuccess(message);
+//                         setTimeout(redirect(), 5000);
+//                         window.location.replace("admintask.html");
+//                         return;
+//                     }
+//                     window.location.replace("index2.html");
+//                     alert("Login successful");
+//                 } else {
+//                     errorMessage.innerText = "**Invalid username or password**";
+//                     errorMessage.style.display = "block";
+//                     return;
+//                 }
+//             } else {
+//                 alert("An error occurred while processing your request.");
+//             }
+//         }
+//     };
+//     xhr.open("POST", "auth.php", true);
+//     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+//     xhr.send("login=true&username=" + encodeURIComponent(username) + "&password=" + encodeURIComponent(password));
+// }
 
 function isValidUsername(username) {
     return username.trim() !== "" && username.length >= 4;
@@ -290,10 +352,15 @@ function generateROTableRows(data) {
             <td>${order.CarSelected}</td>
             <td>${order.FuelType}</td>
             <td>${order.BrandSelected}</td>
+            <td>${order.status}</td>
         `;
         
         tableBody.appendChild(row);
     });
+}
+
+function getRD(){
+    
 }
 
 function generateCarsTableRows(data) {
@@ -408,6 +475,7 @@ function saveCars(fileName) {
     xhr.send("saveCars=true&carName=" + carName + "&carBrand=" + carBrand + "&VehicleNumber=" + vehicleNumber + "&carType=" + carType + "&fileName=" + fileName);
 }
 
+
 // Function to handle the save button click
 function saveButton() {
     // Call uploadImage first, then saveCars with the returned targetFile
@@ -421,4 +489,40 @@ function saveButton() {
         });
 }
 
+function saveOrder() {
+    console.log("saveorder");
+    var cName = document.getElementById('cName').value;
+    var cEmail = document.getElementById('cEmail').value;
+    var cMobile = document.getElementById('cMobile').value;
+    var cartype = document.getElementById('car-type').value;
+    var carbrand = document.getElementById('car-brand').value;
+    var fueltype = document.getElementById('fuel-type').value;
+    var pickdate = document.getElementById('pickup-date').value;
+    var dropdate = document.getElementById('drop-date').value;
+    var username = localStorage.getItem('username');
+
+    // Check if username is not set (user is not logged in)
+    if (!username) {
+        // Set a default username for guest users
+        username = "guest";
+    }
+    console.log(username);
+
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function() {
+        console.log("xhr");
+        if (this.readyState == 4 && this.status == 200) {
+            var response = this.responseText;
+            console.log(response);
+            if (response.trim() === "success") {
+                console.log("Order stored successfully");
+            } else {
+                console.log("Failed to store order");
+            }
+        }
+    };
+    xhr.open("POST", "auth.php", true);
+    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhr.send("saveOrder=true&cName=" + cName + "&cEmail=" + cEmail + "&cMobile=" + cMobile + "&cartype=" + cartype + "&carbrand=" + carbrand + "&fueltype=" + fueltype + "&pickdate=" + pickdate + "&dropdate=" + dropdate + "&username=" + username);
+}
 
