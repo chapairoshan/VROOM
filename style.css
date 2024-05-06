@@ -314,13 +314,14 @@ h1 {
     text-align: center;
 }
 
-nav p {
-    font-size: 1.2em;
-    background-color: white;
-    color: black;
+nav li {
+    font-size: 0.8em;
+    color: white;
     line-height: 1.6;
     padding: 0 10px;
-    
+    margin-left: -80px;
+    margin-bottom: 8px;
+    margin-right: 30px;
 }
 
 p {
