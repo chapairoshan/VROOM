@@ -186,10 +186,9 @@ nav a:hover {
 
 .btn{
     padding: 10px 22px;
-    background: var(--main-color);
-    color: var(--bg-color);
+    background:rgba(245, 243, 243, 0.753);
     font-weight: 400;
-    color: white;
+    color: black;
     font-weight: 400;
     border: 1px solid;
     margin-left: 207px;
@@ -199,6 +198,7 @@ nav a:hover {
 
 .btn:hover{
     background: #0e0d0d;
+    color: white;
 
 }
 
