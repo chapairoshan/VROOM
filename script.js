@@ -242,6 +242,14 @@ function signup() {
     var username = document.getElementById('signupUsername').value;
     var password = document.getElementById('signupPassword').value;
     var verifypassword = document.getElementById('verifyPassword').value;
+    // Display message account created
+    document.getElementById("errorMessage").innerText = "Account created successfully!";
+    document.getElementById("errorMessage").style.color = "green";
+    document.getElementById("errorMessage").style.display = "block";
+    // Redirect to login page
+    setTimeout(function() {
+        window.location.href = "Log.html";
+    }, 1000);
 
     if (mobile == "" || mobile < 10) {
         errorMessage.innerText = "Mobile number should be 10 digits long";
