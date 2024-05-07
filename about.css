@@ -33,7 +33,7 @@ footer p {
   }
   
   .why__content p {
-    color: var(--text-light);
+    color: grey;
   }
   
   .why__grid {
@@ -48,7 +48,7 @@ footer p {
     align-items: center;
     justify-content: center;
     font-size: 2.5rem;
-    color: var(--primary-color);
+    color: black;
     border-radius: 10px;
     box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
   }
@@ -57,7 +57,7 @@ footer p {
     margin-bottom: 0.5rem;
     font-size: 1.2rem;
     font-weight: 600;
-    color: var(--text-dark);
+    color: black;
   }
   
   .why__grid p {
@@ -78,7 +78,7 @@ footer p {
 
   .founders__header__content p {
     max-width: 600px;
-    color: var(--text-light);
+    color: gray;
   }
   
   .founders__nav {
@@ -90,7 +90,7 @@ footer p {
   .founders__nav span {
     padding: 5px 15px;
     font-size: 1.5rem;
-    color: var(--primary-color);
+    color: black;
     background-color: var(--primary-color-light);
     cursor: pointer;
   }
@@ -137,15 +137,15 @@ footer p {
     display: inline-block;
     padding: 6px 12px;
     font-size: 1.5rem;
-    color: var(--text-dark);
-    background-color: var(--white);
+    color: black;
+    background-color: white;
     border-radius: 5px;
     cursor: pointer;
     transition: 0.3s;
   }
   
   .founders__socials span:hover {
-    color: var(--primary-color);
+    color: black;
   }
   
   .founders__card:hover .founders__socials {
