@@ -111,12 +111,15 @@ footer p {
   }
   
   .founders__card__image {
-    position: relative;
-    overflow: hidden;
-    width: 500px;
-    height: 550px;
-    justify-content: center;
+      position: relative;
+      overflow: hidden;
+      width: 508px;
+      height: 403px;
+      margin: 0 auto; 
+      object-fit: cover;
   }
+  
+  
   
   .founders__socials {
     position: absolute;
