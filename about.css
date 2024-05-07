@@ -71,11 +71,6 @@ footer p {
     gap: 2rem;
   }
   
-  .about {
-    background-color: white;
-    color: black;
-  }
-
   .founders__header__content p {
     max-width: 600px;
     color: var(--text-light);

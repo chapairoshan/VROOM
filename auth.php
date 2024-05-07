@@ -76,28 +76,6 @@ if(isset($_POST['contactus'])) {
     }
 }
 
-if (isset($_POST['saveOrder'])) {
-    $cName = $_POST['cName'];
-    $cEmail = $_POST['cEmail'];
-    $cMobile = $_POST['cMobile'];
-    $cartype = $_POST['cartype'];
-    $carbrand = $_POST['carbrand'];
-    $fueltype = $_POST['fueltype'];
-    $pickdate = $_POST['pickdate'];
-    $dropdate = $_POST['dropdate'];
-    $username = $_POST['username'];
-
-    // Prepare and execute statement
-    $stmt = $conn->prepare("INSERT INTO PreviousOrders (FullName, PhoneNumber, DateOrderPickup, DateOrderDrop, CarSelected, FuelType, BrandSelected, username) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param("ssssssss", $cName, $cMobile, $pickdate, $dropdate, $cartype, $fueltype, $carbrand, $username);
-
-    if ($stmt->execute()) {
-        echo "success";
-    } else {
-        // Print error to console
-        echo "Error executing signup query: " . $conn->error;
-    }
-}
 
 
 $conn->close();
