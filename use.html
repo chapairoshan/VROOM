@@ -312,30 +312,10 @@
 	
     <script src="script.js"></script>
 	<script>
-       const allSideMenu = document.querySelectorAll('#sidebar .side-menu.top li a');
 
-allSideMenu.forEach(item=> {
-	const li = item.parentElement;
 
-	item.addEventListener('click', function () {
-		allSideMenu.forEach(i=> {
-			i.parentElement.classList.remove('active');
-		})
-		li.classList.add('active');
-	})
-});
 
-// Add hover effect to sidebar links
-const sidebarLinks = document.querySelectorAll('#sidebar .side-menu.top li a');
 
-sidebarLinks.forEach(link => {
-    link.addEventListener('mouseenter', function () {
-        sidebarLinks.forEach(l => {
-            l.parentElement.classList.remove('active');
-        });
-        link.parentElement.classList.add('active');
-    });
-});
 
 
 // Get the popup and the button to open it
