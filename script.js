@@ -277,7 +277,12 @@ function signup() {
             if (response.trim() === "success") {
                 console.log("value stored final")
 
-                alert("Sign up successful. You can now log in.");
+                localStorage.setItem("username", username);
+                        let message = "Sign up successful. Redirecting...";
+                        loginSuccess(message);
+                        setTimeout(() => {
+                            window.location.replace("index2.html");
+                        }, 2000);
             } else {
                 alert("Sign up failed. Please try again.");
             }
@@ -490,7 +495,6 @@ function saveButton() {
 }
 
 function saveOrder() {
-    console.log("saveorder");
     var cName = document.getElementById('cName').value;
     var cEmail = document.getElementById('cEmail').value;
     var cMobile = document.getElementById('cMobile').value;
@@ -501,17 +505,11 @@ function saveOrder() {
     var dropdate = document.getElementById('drop-date').value;
     var username = localStorage.getItem('username');
 
-    // Check if username is not set (user is not logged in)
-    if (!username) {
-        // Set a default username for guest users
-        username = "guest";
-    }
-    console.log(username);
-
     var xhr = new XMLHttpRequest();
+    console.log(cName);
     xhr.onreadystatechange = function() {
-        console.log("xhr");
-        if (this.readyState == 4 && this.status == 200) {
+        console.log(this.responseText);
+        if (this.readyState == 4) {
             var response = this.responseText;
             console.log(response);
             if (response.trim() === "success") {
@@ -521,8 +519,12 @@ function saveOrder() {
             }
         }
     };
-    xhr.open("POST", "auth.php", true);
+    xhr.open("POST", "saveOrder.php", true);
     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhr.send("saveOrder=true&cName=" + cName + "&cEmail=" + cEmail + "&cMobile=" + cMobile + "&cartype=" + cartype + "&carbrand=" + carbrand + "&fueltype=" + fueltype + "&pickdate=" + pickdate + "&dropdate=" + dropdate + "&username=" + username);
 }
+
+
+
+
 

@@ -37,8 +37,11 @@ function login() {
                     } else {
                         // Set session variable in localStorage
                         localStorage.setItem("username", username);
-                        window.location.replace("index2.html");
-                        alert("Login successful");
+                        let message = "Login successful";
+                        loginSuccess(message);
+                        setTimeout(() => {
+                            window.location.replace("index2.html");
+                        }, 3000);
                     }
                 } else {
                     errorMessage.innerText = "**Invalid username or password**";
