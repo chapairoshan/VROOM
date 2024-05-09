@@ -27,6 +27,8 @@ function login() {
                 var response = this.responseText;
                 if (response.trim() === "success") {
                     // Session started, handle login success
+                    // Set session variable in localStorage
+                    localStorage.setItem("username", username);
                     if(username === "admin") {
                         let message = "Admin login successful";
                         loginSuccess(message);

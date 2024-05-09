@@ -47,7 +47,12 @@
                     <span class="text">Car Collection</span>
                 </a>
 			</li>
-
+			<li>
+				<a href="#Drivers">
+					<i class='bx bxs-group' ></i>
+					<span class="text">Available Drivers</span>
+				</a>
+			</li>
 			<li>
                     <a href="#message-panel">
                         <i class='bx bxs-message-dots'></i>
@@ -55,12 +60,14 @@
                     </a>
                 
 			</li>
-			<li>
-				<a href="#Drivers">
-					<i class='bx bxs-group' ></i>
-					<span class="text">Available Drivers</span>
-				</a>
-			</li>
+            <li>
+                <a href="#user-panel">
+                    <i class='bx bxs-user'></i>
+                    <span class="text">Users</span>
+                </a>
+            
+        </li>
+
             <li>
 				<a href="adminsett.html">
 					<i class='bx bxs-cog' ></i>
@@ -222,6 +229,27 @@
                             </tbody>
                         </table>
                     </div>
+
+                    <div class="user-panel" id="user-panel">
+                        <div class="head">
+                            <h3>Our users</h3>
+                        </div>
+                        <table class="user-table">
+                            <thead>
+                                <tr>
+                                    <th>Full Name</th>
+                                    <th>Address</th>
+                                    <th>Email</th>
+                                    <th>Contact Number</th>
+                                    <th>Username</th>
+                                    <th>Loyalty Points</th>
+                                    
+                                </tr>
+                            </thead>
+                            <tbody id="user-table-body">
+                            </tbody>
+                        </table>
+                    </div>
                     
 		</main>	
 
@@ -231,30 +259,6 @@
 	
     <script src="script.js"></script>
 	<script>
-       const allSideMenu = document.querySelectorAll('#sidebar .side-menu.top li a');
-
-allSideMenu.forEach(item=> {
-	const li = item.parentElement;
-
-	item.addEventListener('click', function () {
-		allSideMenu.forEach(i=> {
-			i.parentElement.classList.remove('active');
-		})
-		li.classList.add('active');
-	})
-});
-
-const sidebarLinks = document.querySelectorAll('#sidebar .side-menu.top li a');
-
-sidebarLinks.forEach(link => {
-    link.addEventListener('mouseenter', function () {
-        sidebarLinks.forEach(l => {
-            l.parentElement.classList.remove('active');
-        });
-        link.parentElement.classList.add('active');
-    });
-});
-
 
 const popup = document.getElementById('profile-popup');
 const profileBtn = document.getElementById('profile-btn');
