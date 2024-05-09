@@ -76,7 +76,6 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 });
 
-//second reserve
 
 document.addEventListener('DOMContentLoaded', function() {
     // Function to open the reservation popup
@@ -262,7 +261,8 @@ function signup() {
     }
 
     if (password != verifypassword){
-        alert("Passwords do not match");
+        errorMessage.innerText = "**Password do not match**";
+        errorMessage.style.display = "block";
         return;
     }
     console.log("value stored 1")
@@ -276,13 +276,13 @@ function signup() {
             var response = this.responseText;
             if (response.trim() === "success") {
                 console.log("value stored final")
-
                 localStorage.setItem("username", username);
-                        let message = "Sign up successful. Redirecting...";
-                        loginSuccess(message);
-                        setTimeout(() => {
-                            window.location.replace("index2.html");
-                        }, 2000);
+                errorMessage.style.color = "green";
+                errorMessage.innerText = "Signup Successful! Redirecting. . .";
+                errorMessage.style.display = "block";
+                setTimeout(() => {
+                    window.location.replace("index2.html");
+                }, 1000);
             } else {
                 alert("Sign up failed. Please try again.");
             }

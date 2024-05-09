@@ -34,7 +34,7 @@ function login() {
                         loginSuccess(message);
                         setTimeout(() => {
                             window.location.replace("admintask.html");
-                        }, 3000);
+                        }, 1000);
                         
                     } else {
                         // Set session variable in localStorage
@@ -43,7 +43,7 @@ function login() {
                         loginSuccess(message);
                         setTimeout(() => {
                             window.location.replace("index2.html");
-                        }, 3000);
+                        }, 1000);
                     }
                 } else {
                     errorMessage.innerText = "**Invalid username or password**";
