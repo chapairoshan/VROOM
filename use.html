@@ -44,7 +44,7 @@
         <a href="loggedIn_contact.html">Contact us</a> 
 
         <a href="use.html" class="user"><img src="icon/user.png" alt=""></a>
-        <a href="index.html" class="sign-in-btn">Sign Out</a>
+        <a onclick="signOut()" class="sign-in-btn">Sign Out</a>
 
     </nav>
 </header>
@@ -54,7 +54,7 @@
 
 	<section id="sidebar">
 		<a href="#" class="brand">
-            <i class='bx bxs-user'></i>
+            <i class='bx bxs-user' id="profile-btn"></i>
     		<span class="text" id="username">User Panel</span>
 		</a>
 		<ul class="side-menu top">
@@ -96,13 +96,6 @@
 
 	</section>
 	<section id="content">
-		<nav>
-			<a href="#" class="profile" id="profile-btn">
-
-				<img src="driver/d1.jpg" class="profile-img">
-
-			</a>
-		</nav>
 
 		<main>
 			<div class="head-title">
@@ -117,8 +110,8 @@
                     <span class="close">&times;</span>
                     <h2>Profile</h2>
                     <div class="profile-info">
-                        <p><strong>Name:</strong> User Name</p>
-                        <p><strong>Date of Birth:</strong> DD/MM/YYYY</p>
+                        <p>Username: <span id="username">username</span></p>
+                        <p>Email: <span id="email">email</span></p>
                     </div>
                     <a href="editProfile.html" id="edit-profile-button">Edit Profile</a>
                 </div>
@@ -310,40 +303,31 @@
 </section>
 
 	
-    <script src="script.js"></script>
-	<script>
+    
+<script>
+    // Get the popup and the button to open it
+    const popup = document.getElementById('profile-popup');
+    const profileBtn = document.getElementById('profile-btn');
+    const closeBtn = document.querySelector('.close');
 
+    // Open the popup when the button is clicked
+    profileBtn.addEventListener('click', function() {
+        popup.style.display = 'block';
+    });
 
-
-
-
-
-// Get the popup and the button to open it
-const popup = document.getElementById('profile-popup');
-const profileBtn = document.getElementById('profile-btn');
-const closeBtn = document.querySelector('.close');
-
-// Open the popup when the button is clicked
-profileBtn.addEventListener('click', function() {
-    popup.style.display = 'block';
-});
-
-// Close the popup when the close button is clicked
-closeBtn.addEventListener('click', function() {
-    popup.style.display = 'none';
-});
-
-// Close the popup when clicking outside of it
-window.addEventListener('click', function(event) {
-    if (event.target === popup) {
+    // Close the popup when the close button is clicked
+    closeBtn.addEventListener('click', function() {
         popup.style.display = 'none';
-    }
-});
+    });
 
-
-
-
-    </script>
-    <script src="login.js"></script>
+    // Close the popup when clicking outside of it
+    window.addEventListener('click', function(event) {
+        if (event.target === popup) {
+            popup.style.display = 'none';
+        }
+    });
+</script>
+<script src="script.js"></script>
+<script src="login.js"></script>
 </body>
 </html>

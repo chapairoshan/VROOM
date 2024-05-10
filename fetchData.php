@@ -28,10 +28,20 @@ $result = $conn->query($sql);
 $loyalty = array();
 if ($result->num_rows > 0) {
     while($row = $result->fetch_assoc()) {
-        $loyalty[] = $row;
+        $loyalty[] =ß $row;
     }
 }
 */
+
+$sql = "SELECT * FROM users";
+$result = $conn->query($sql);
+
+$users = array();
+if ($result->num_rows > 0) {
+    while($row = $result->fetch_assoc()) {
+        $users[] = $row;
+    }
+}
 
 $sql = "SELECT * FROM PreviousOrders";
 $result = $conn->query($sql);
@@ -56,7 +66,8 @@ if ($result->num_rows > 0){
 $data = array(
     'cars' => $cars,
     'orders' => $orders,
-    'messages' => $messages
+    'messages' => $messages,
+    'users' => $users
 );
 
 header('Content-Type: application/json');

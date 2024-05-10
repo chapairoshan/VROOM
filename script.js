@@ -15,7 +15,19 @@ function openPopup() {
                 console.error("Data is invalid:", data);
                 return;
             }
-
+            const username = localStorage.getItem('username');
+            var currentUser = data.users.find(user => user.username === username);
+            if (currentUser) {
+                // Set the value of the cName input field to the full name of the current user
+                var cNameInput = document.getElementById('cName');
+                cNameInput.value = currentUser.full_name;
+                var cEmailInput = document.getElementById('cEmail');
+                cEmailInput.value = currentUser.email;
+                var cMobileInput = document.getElementById('cMobile');
+                cMobileInput.value = currentUser.mobile;
+            } else {
+                console.error("User not found:", username);
+            }
             // Function to populate select options
             function populateSelect(selectId, options) {
                 let select = document.getElementById(selectId);
@@ -67,9 +79,9 @@ document.addEventListener("DOMContentLoaded", function() {
     const reserveButton = document.querySelector(".reserve-button");
     const closeButton = document.getElementById("close-button");
 
-    if (reserveButton) {
-        reserveButton.addEventListener("click", openPopup);
-    }
+    // if (reserveButton) {
+    //     reserveButton.addEventListener("click", openPopup);
+    // }
 
     if (closeButton) {
         closeButton.addEventListener("click", closePopup);
@@ -79,10 +91,10 @@ document.addEventListener("DOMContentLoaded", function() {
 
 document.addEventListener('DOMContentLoaded', function() {
     // Function to open the reservation popup
-    function openPopup() {
-        document.getElementById('popup').classList.remove('hidden');
-        document.body.style.overflow = 'hidden'; // Prevent scrolling
-    }
+    // function openPopup() {
+    //     document.getElementById('popup').classList.remove('hidden');
+    //     document.body.style.overflow = 'hidden'; // Prevent scrolling
+    // }
 
     // Function to close the reservation popup
     function closePopup() {
@@ -144,12 +156,12 @@ function showDescription(carType) {
     }
 }
 
-const reserveButtons = document.querySelectorAll(".reserve-button");
-if (reserveButtons) {
-    reserveButtons.forEach(button => {
-        button.addEventListener("click", openPopup);
-    });
-}
+// const reserveButtons = document.querySelectorAll(".reserve-button");
+// if (reserveButtons) {
+//     reserveButtons.forEach(button => {
+//         button.addEventListener("click", openPopup);
+//     });
+// }
 
 const closeButton = document.getElementById("close-button");
 if (closeButton) {
@@ -522,6 +534,14 @@ function saveOrder() {
     xhr.open("POST", "saveOrder.php", true);
     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhr.send("saveOrder=true&cName=" + cName + "&cEmail=" + cEmail + "&cMobile=" + cMobile + "&cartype=" + cartype + "&carbrand=" + carbrand + "&fueltype=" + fueltype + "&pickdate=" + pickdate + "&dropdate=" + dropdate + "&username=" + username);
+}
+
+function cancelOrder(){
+
+}
+
+function editOrder(){
+
 }
 
 
