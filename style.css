@@ -561,9 +561,7 @@ button[type="submit"]:hover {
 
 /* For screens smaller than 600px */
 @media only screen and (max-width: 600px) {
-    .review-item {
-        flex: 0 0 100%;
-    }
+   
 }
 
 /* for user icon */
@@ -609,10 +607,7 @@ button[type="submit"]:hover {
 }
 
 @media only screen and (max-width: 600px) {
-    .image-colage img {
-        width: 100%;
-        padding: 5px;
-    }
+   
 }
 
 /* Contact us section */
@@ -670,17 +665,7 @@ button[type="submit"]:hover {
 }
 
 @media only screen and (max-width: 600px) {
-    .contact-container {
-        padding: 10px;
-    }
-
-    .contact-details h3 {
-        font-size: 24px;
-    }
-
-    .contact-details p {
-        font-size: 1em;
-    }
+    
 }
 
 
@@ -703,69 +688,30 @@ button[type="submit"]:hover {
 
 
 
-/* For screens smaller than 600px */
-@media only screen and (max-width: 600px) {
-    .logo {
-        margin-right: 20px;
-    }
 
-    nav {
-        flex-direction: column;
-        align-items: center;
-    }
 
-    nav a {
-        margin: 10px 0;
-        font-size: 14px;
-    }
 
-    .review-item {
-        flex: 0 0 100%;
-    }
-
-    .image-colage img {
-        width: 100%;
-        padding: 5px;
-    }
-
-    .contact-details {
-        margin-right: 0;
-    }
-
-    .contact-info img {
-        width: 30px;
-    }
-
-    .social-media-links {
-        margin-bottom: 20px;
-    }
-}
-
-/* For screens between 600px and 1200px */
 @media only screen and (min-width: 600px) and (max-width: 1200px) {
     nav a {
         margin: 0 10px;
+        margin-left: -18px;
+        font-size: 10px;
     }
+    h1{
+        font-size: 30px;
+    }
+    }
+    .sign-in-btn{
+        display: block;
+    }
+
 
     .review-item {
         flex: 0 0 calc(50% - 20px);
     }
-}
 
-/* For screens larger than 1200px */
-@media only screen and (min-width: 1200px) {
-    nav {
-        justify-content: space-between;
-    }
 
-    nav a {
-        margin: 0;
-    }
 
-    .review-item {
-        flex: 0 0 calc(33.33% - 20px);
-    }
-}
 
 
 
@@ -882,4 +828,122 @@ button[type="submit"]:hover {
             background: black;
             color: white;
 
+}
+
+
+/* For screens smaller than 600px */
+@media only screen and (max-width: 600px) {
+    .logo {
+        margin-right: 20px;
+    }
+
+    nav {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav a {
+        margin: 10px 0;
+        font-size: 15px;
+    }
+    .home{
+        background-image: url(icon/red.jpg);
+        background-size: cover;
+    }
+
+    .home-text{
+        margin-left: -90px;
+        margin-top: 170px;
+    }
+    .home-text .h1{
+        font-size: 20px;
+    }
+    .review-item {
+        flex: 0 0 100%;
+    }
+
+    .image-colage img {
+        width: 100%;
+        padding: 5px;
+    }
+
+    .contact-details {
+        margin-right: 0;
+    }
+
+    .contact-info img {
+        width: 164px;
+    }
+
+    .social-media-links {
+        margin-bottom: 20px;
+    }
+    .contact-container {
+        padding: 10px;
+    }
+
+    .contact-details h3 {
+        font-size: 12px;
+    }
+
+    .contact-details p {
+        font-size: 1em;
+    }
+    .image-colage img {
+        width: 100%;
+        padding: 5px;
+    }
+    .image-row{
+        padding: 3px 1px;
+        margin-right: 32px;
+    }
+    .review-item {
+        flex: 0 0 100%;
+    }
+    h2{
+        font-size: 22px;
+
+    }
+    h1{
+        font-size: 22px;
+
+    }
+    p{
+        font-size: 15px;
+    }
+    .btn{
+        margin-left: 20px;
+        padding: 14px;
+    }
+    .about-text{
+        margin-right: 20px;
+        font-size: 20px;
+    }
+/* rent.html */
+    #order-section{
+        margin-top: 177px;
+    }
+    .h3{
+        font-size: 20px;
+    }
+    .car-section .img{
+            width: 10px;
+            height:20px;
+    }
+    
+    /* contact.html */
+    .contact-info{
+        font-size: 12px;
+    }
+    .container h1{
+        margin-top: 209px;
+    }
+    .image-contact img{
+        width: 190px;
+        height: 207px;
+    }
+    .form{
+        margin-top: 20px;
+    }
+    
 }
