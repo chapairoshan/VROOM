@@ -333,17 +333,67 @@ body {
 
 @media screen and (max-width: 768px) {
 	#sidebar {
-		width: 200px;
+    /* width: 144px;
+    margin-top: 67%;
+    flex-direction: column;
+    align-items: center; */
+    display: none;
 	}
+  #sidebar .side-menu{
+    font-size: 10px;
+  }
 
-	#content {
-		width: calc(100% - 60px);
-		left: 200px;
-	}
+	
+ 
+    #sidebar .side-menu li a {
+         font-size: 11px;
+}
+#sidebar .sidebar{
+  margin-top: 67%;
+  width: 141px;
 
-	#content nav .nav-link {
-		display: none;
-	}
+}
+
+#content {
+  /* width: calc(100% - 109px);
+  left: 127px; */
+  width: calc(100% - 15px);
+  left: 12px;
+}
+#content main .head-title {
+  min-width: 389px;
+  margin-top: 56%;
+  font-size: 11px;
+}
+#content main .table-data{
+  min-width: 409px;
+  font-size: 9px;
+  margin-left: -46px;
+}
+#content main .table-data .head {
+  min-width: 100px;
+  margin-left: -39px;
+  font-size: 7px;
+}
+#content main .table-data table {
+  margin-left: 2px;
+}
+
+.cancel-btn {
+  width: 115px;
+  height: 29px;
+
+}
+#content nav {
+    display: none;
+}
+.loyalty-panel .head {
+  flex-direction: column;
+  align-items: flex-start;
+}
+#loyalty-panel{
+  margin-left: 21px;
+}
 }
 
 
@@ -405,102 +455,13 @@ body {
     height: auto;
   }
   
-  @media screen and (max-width: 768px) {
-    .sidebar {
-      width: 200px;
-    }
-  
-    .content {
-      width: calc(100% - 200px);
-      left: 200px;
-    }
-  }
+
   
   @media screen and (max-width: 576px) {
     .nav-link {
       display: none;
     }
   }
-
-  @media screen and (max-width: 768px) {
-    .loyalty-panel .head {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-}
-
-/* For screens smaller than 576px */
-@media screen and (max-width: 576px) {
-  /* Hide navigation links */
-  #content nav .nav-link {
-      display: none;
-  }
-
-  /* Adjust form input and button */
-  #content nav form .form-input input {
-      display: none;
-  }
-
-  #content nav form .form-input button {
-      width: auto;
-      height: auto;
-      background: transparent;
-      border-radius: none;
-      color: var(--dark);
-  }
-
-  /* Show search input when form is expanded */
-  #content nav form.show .form-input input {
-      display: block;
-      width: 100%;
-  }
-
-  /* Hide notification and profile icons */
-  #content nav form.show ~ .notification,
-  #content nav form.show ~ .profile {
-      display: none;
-  }
-
-  /* Adjust box-info layout to single column */
-  #content main .box-info {
-      grid-template-columns: 1fr;
-  }
-
-  /* Ensure table headers have sufficient width */
-  #content main .table-data .head,
-  #content main .table-data .order table,
-  #content main .table-data .car-collection .car-collection-list {
-      min-width: 420px;
-  }
-}
-
-/* For screens smaller than 768px */
-@media screen and (max-width: 768px) {
-
-  #sidebar {
-      width: 200px;
-  }
-
-  #content {
-      width: calc(100% - 200px);
-      left: 200px;
-  }
-
-
-  #content nav .nav-link {
-      display: none;
-  }
-}
-
-/* Additional responsive adjustments */
-@media screen and (max-width: 768px) {
-  /* Adjust loyalty panel header layout */
-  .loyalty-panel .head {
-      flex-direction: column;
-      align-items: flex-start;
-  }
-}
-
 
 
   
@@ -817,4 +778,40 @@ nav a:hover {
 
 .cancel-btn:hover {
   background-color: #555;
+}
+
+* For screens smaller than 576px */
+@media screen and (max-width: 600px) {
+  #content nav .nav-link {
+      display: none;
+  }
+
+  #content nav form .form-input input {
+      display: none;
+  }
+
+  #content nav form .form-input button {
+      width: auto;
+      height: auto;
+      background: transparent;
+      border-radius: none;
+      color: var(--dark);
+  }
+
+  #content nav form.show .form-input input {
+      display: block;
+      width: 100%;
+  }
+
+ 
+
+  #content main .box-info {
+      grid-template-columns: 1fr;
+  }
+
+  #content main .table-data .head,
+  #content main .table-data .order table,
+  #content main .table-data .car-collection .car-collection-list {
+      min-width: 420px;
+  }
 }
