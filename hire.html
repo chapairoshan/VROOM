@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- Boxicons -->
+	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+	<link rel="stylesheet" href="use.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" type="text/css" href="editProfile.css">
+    <style>
+        .container2 {
+	width: 500px;
+	margin: 0 auto;
+	padding: 20px;
+	border-radius: 5px;
+	box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+	margin-top: 71px;
+
+}
+.container2 .table{
+    padding: 10px;
+}
+
+
+/* hired table */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.table th {
+    background-color: #f2f2f2;
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.cancel-btn {
+    display: block;
+    width: 77px;
+    margin-top: 19px;
+    padding: 10px;
+    text-align: center;
+    background-color: black;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.cancel-btn:hover {
+    background-color: #302c2c;
+}
+    </style>
+
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="#" class="logo">
+                <img src="icon/Black Modern Car Automotive Logo (1).png" alt="Vroom Logo">
+            </a>
+            <a href="index2.html">Home</a>
+            <a href="loggedIn_about.html">About Us</a>
+            <a href="loggedin_rent.html">Rent a Car</a>
+            <a href="loggedIn_contact.html">Contact us</a> 
+    
+            <a href="use.html" class="user"><img src="icon/user.png" alt=""></a>
+            <a href="index.html" class="sign-in-btn">Sign Out</a>
+    
+        </nav>
+    </header>
+    <section id="sidebar">
+		<a href="#" class="brand">
+            <i class='bx bxs-user'></i>
+    		<span class="text">User Pannel</span>
+		</a>
+		<ul class="side-menu top">
+
+			<li>
+                <a href="use.html">
+                    <i class='bx bxs-book'></i>
+                    <span class="text"> Current Booking</span>
+                </a>
+			</li>
+
+            <li>
+                <a href="use.html">
+                    <i class='bx bxs-book'></i>
+                    <span class="text">Recent Bookings</span>
+                </a>
+			</li>
+
+			<li>
+                    <a href="use.html">
+                        <i class='bx bxs-message-dots'></i>
+                        <span class="text">Loyalty</span>
+                    </a>
+                
+			</li>
+            <li>
+				<a href="use.html">
+					<i class='bx bxs-like' ></i>
+					<span class="text">Offer</span>
+				</a>
+			</li>
+            <li>
+				<a href="usersett.html">
+					<i class='bx bxs-cog' ></i>
+					<span class="text">Settings</span>
+				</a>
+			</li>
+		</ul>
+    </section>
+    <div class="container">
+        <h1>Hire a Driver</h1>
+        <form action="use.html">
+            <label for="fname"> Select Driver:</label><br>
+            <select id="driverty" name="driverty">
+                <option value="driver1">d1</option>
+                <option value="driver2">d2</option>
+                <option value="driver3">d3</option>
+                <option value="Any Available">Any Available</option>
+            </select>
+            <input type="submit" value="Save" onclick="window.location.href='use.html'">
+            <input type="button" value="Cancel" onclick="window.location.href='use.html'">
+        </form>
+    </div>
+
+        
+        <div class="container2">
+                    <h3>Booked Rider</h3>
+            
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Phone Number</th>
+                            <th>License Number</th>
+                            <th>Address</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                          
+
+
+                        </tr>
+                    
+                    </tbody>
+                </table>
+                <a href="#" class="cancel-btn">Cancel</a>
+            </div>
+   
+</body>
+</html>

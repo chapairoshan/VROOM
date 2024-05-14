@@ -13,6 +13,8 @@ body {
 
 }
 
+
+
 h1 {
 	text-align: center;
 	margin-bottom: 30px;
@@ -36,7 +38,7 @@ input[type="text"], input[type="email"], input[type="tel"], input[type="password
 input[type="submit"], input[type="button"] {
 	width: 100%;
 	padding: 10px;
-	background-color: #4CAF50;
+	background-color: black;
 	color: #fff;
 	border: none;
 	border-radius: 5px;
@@ -44,7 +46,7 @@ input[type="submit"], input[type="button"] {
 }
 
 input[type="submit"]:hover, input[type="button"]:hover {
-	background-color: #45a049;
+	background-color: gray;
 }
 
 input[type="button"] {
@@ -53,5 +55,8 @@ input[type="button"] {
 }
 
 input[type="button"]:hover {
-	background-color: #da190b;
+	background-color: #d3382d;
 }
+
+
+

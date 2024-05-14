@@ -32,7 +32,9 @@
         <tr>
             <th>S. No.</th>
             <th>Driver Name</th>
+            <th>Phone Number</th>
             <th>License Number</th>
+            <th>Address</th>
             <th>Status</th>
             <th>Action</th>
         </tr>
@@ -54,12 +56,28 @@
                 <input type="file" id="image" name="image" required>
             </div>
             <div class="form-group">
-                <label for="driverName">Driver Name:</label>
-                <input type="text" id="driverName" name="driverName" placeholder="Driver name, e.g. John Doe" required>
+                <label for="driverName">Enter Name:</label>
+                <input type="text" id="driverName" name="driverName" placeholder="helen" required>
+            </div>
+            <div class="form-group">
+                <label for="driverNo">Enter Phonenumber:</label>
+                <input type="text" id="driverNo" name="driverNo" placeholder="Phonenumber" required>
+            </div>
+            <div class="form-group">
+                <label for="driverAddress">Enter Address:</label>
+                <input type="text" id="driverAddress" name="driverAddress" placeholder="Kathmandu" required>
+            </div>
+            <div class="form-group">
+                <label for="State">Enter Status:</label>
+                <select id="status" name="status">
+                    <option value="active">Active</option>
+                    <option value="notactive">Not Active</option>
+                </select>
             </div>
             <div class="form-group">
                 <label for="licenseNumber">License Number:</label>
                 <input type="text" id="licenseNumber" name="licenseNumber" required>
+            </div>
             <button type="submit" id="saveDriverBtn" onclick="saveDriverButton()">Save Driver</button>
         </form>
     </div>

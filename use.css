@@ -331,100 +331,6 @@ body {
 
 
 
-@media screen and (max-width: 768px) {
-	#sidebar {
-    /* width: 144px;
-    margin-top: 67%;
-    flex-direction: column;
-    align-items: center; */
-    display: none;
-	}
-  #sidebar .side-menu{
-    font-size: 10px;
-  }
-
-	
- 
-    #sidebar .side-menu li a {
-         font-size: 11px;
-}
-#sidebar .sidebar{
-  margin-top: 67%;
-  width: 141px;
-
-}
-
-#content {
-  /* width: calc(100% - 109px);
-  left: 127px; */
-  width: calc(100% - 15px);
-  left: 12px;
-}
-#content main .head-title {
-  min-width: 389px;
-  margin-top: 56%;
-  font-size: 11px;
-}
-#content main .table-data{
-  min-width: 409px;
-  font-size: 9px;
-  margin-left: -46px;
-}
-#content main .table-data .head {
-  min-width: 100px;
-  margin-left: -39px;
-  font-size: 7px;
-}
-#content main .table-data table {
-  margin-left: 2px;
-}
-
-.cancel-btn {
-  width: 115px;
-  height: 29px;
-
-}
-#content nav {
-    display: none;
-}
-.loyalty-panel .head {
-  flex-direction: column;
-  align-items: flex-start;
-}
-#loyalty-panel{
-  margin-left: 21px;
-}
-}
-
-
-
-
-
-
-@media screen and (max-width: 576px) {
-	
-
-	
-
-	
-	#content nav  .profile {
-		display: none;
-	}
-
-	#content main .box-info {
-		grid-template-columns: 1fr;
-	}
-
-	#content main .table-data .head {
-		min-width: 420px;
-	}
-	#content main .table-data .order table {
-		min-width: 420px;
-	}
-	#content main .table-data .car-collection .car-collection-list {
-		min-width: 420px;
-	}
-}
 
 
   
@@ -474,6 +380,9 @@ body {
   }
 
   
+  .hired{
+    margin: 0px;
+  }
   
 #message-panel {
     background: var(--light);
@@ -814,4 +723,100 @@ nav a:hover {
   #content main .table-data .car-collection .car-collection-list {
       min-width: 420px;
   }
+}
+
+
+@media screen and (max-width: 768px) {
+	#sidebar {
+    /* width: 144px;
+    margin-top: 67%;
+    flex-direction: column;
+    align-items: center; */
+    display: none;
+	}
+  #sidebar .side-menu{
+    font-size: 10px;
+  }
+
+	
+ 
+    #sidebar .side-menu li a {
+         font-size: 11px;
+}
+#sidebar .sidebar{
+  margin-top: 67%;
+  width: 141px;
+
+}
+
+#content {
+  /* width: calc(100% - 109px);
+  left: 127px; */
+  width: calc(100% - 15px);
+  left: 12px;
+}
+#content main .head-title {
+  min-width: 389px;
+  margin-top: 56%;
+  font-size: 11px;
+}
+#content main .table-data{
+  min-width: 409px;
+  font-size: 9px;
+  margin-left: -46px;
+}
+#content main .table-data .head {
+  min-width: 100px;
+  margin-left: -39px;
+  font-size: 7px;
+}
+#content main .table-data table {
+  margin-left: 2px;
+}
+
+.cancel-btn {
+  width: 115px;
+  height: 29px;
+
+}
+#content nav {
+    display: none;
+}
+.loyalty-panel .head {
+  flex-direction: column;
+  align-items: flex-start;
+}
+#loyalty-panel{
+  margin-left: 21px;
+}
+}
+
+
+
+
+
+
+@media screen and (max-width: 576px) {
+	
+
+	
+
+	
+	#content nav  .profile {
+		display: none;
+	}
+
+	#content main .box-info {
+		grid-template-columns: 1fr;
+	}
+
+	#content main .table-data .head {
+		min-width: 420px;
+	}
+	#content main .table-data .order table {
+		min-width: 420px;
+	}
+	#content main .table-data .car-collection .car-collection-list {
+		min-width: 420px;
+	}
 }
