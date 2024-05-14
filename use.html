@@ -45,14 +45,14 @@
 		<ul class="side-menu top">
 
 			<li>
-                <a href="#Bookings">
+                <a href="#Bookings1">
                     <i class='bx bxs-book'></i>
                     <span class="text"> Current Booking</span>
                 </a>
 			</li>
 
             <li>
-                <a href="#Bookings">
+                <a href="#Previous">
                     <i class='bx bxs-book'></i>
                     <span class="text">Recent Bookings</span>
                 </a>
@@ -66,7 +66,7 @@
                 
 			</li>
             <li>
-				<a href="#">
+				<a href="#Offers">
 					<i class='bx bxs-like' ></i>
 					<span class="text">Offer</span>
 				</a>
@@ -106,7 +106,7 @@
                 </div>
             </div>
             
-            <div class="table-data" id="Bookings">
+            <div class="table-data" id="Bookings1">
 				<div class="order">
 					<div class="head">
 						<h3>Current Order</h3>
@@ -148,7 +148,7 @@
 
                 </div>
 
-			<div class="table-data" id="Bookings">
+			<div class="table-data" id="Previous">
 				<div class="order">
 					<div class="head">
 						<h3>Previous Orders</h3>
@@ -237,7 +237,6 @@
 					</table>
 				</div>
                 
-                    <!-- loyalty Panel -->
 <div class="loyalty-panel" id="loyalty-panel">
     <div class="head">
         <h3>Loyalty points</h3>
@@ -288,6 +287,41 @@
     </table>
    
 </div>
+
+<div class="table-data" id="Offers">
+    <div class="order">
+        <div class="head">
+            <h3>Offers available</h3>
+    
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Current Offers</th>
+                    <th>Valid Start Date </th>
+                    <th>Valid till Date </th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+
+                    <td>Cash back</td>
+                    <td>01-10-2021</td>
+                    <td>01-10-2021</td>
+
+                    
+
+
+                </tr>
+            
+            </tbody>
+        </table>
+    </div>
+ 
+
+
+    </div>
 		</main>	
 
 
@@ -296,22 +330,18 @@
 	
     
 <script>
-    // Get the popup and the button to open it
     const popup = document.getElementById('profile-popup');
     const profileBtn = document.getElementById('profile-btn');
     const closeBtn = document.querySelector('.close');
 
-    // Open the popup when the button is clicked
     profileBtn.addEventListener('click', function() {
         popup.style.display = 'block';
     });
 
-    // Close the popup when the close button is clicked
     closeBtn.addEventListener('click', function() {
         popup.style.display = 'none';
     });
 
-    // Close the popup when clicking outside of it
     window.addEventListener('click', function(event) {
         if (event.target === popup) {
             popup.style.display = 'none';
