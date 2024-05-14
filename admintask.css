@@ -314,7 +314,7 @@ body {
 
 #content main .car-collection-list {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 10px;
     justify-content: space-between;
 }
@@ -329,19 +329,24 @@ body {
 }
 
 #content main .car-collection-list li img {
-    width: 150px;
+    width: 158px;
     height: 200px;
     border-radius: 5px;
     object-fit: cover;
 }
 
-#content main .car-collection-list li .bx {
-    position: absolute;
-    top: 5px;
-    right: 5px;
-    color: var(--dark);
-    font-size: 20px;
-    cursor: pointer;
+
+/*  */
+
+.car-collection-list li img {
+  max-width: 200px; 
+  height: 100px; 
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); }
+
+.car-collection-list li i {
+  margin-left: 10px; 
+  color: #333; 
 }
 
 #content main .car-collection-list li:hover {
@@ -697,6 +702,15 @@ body {
 
 .password button:hover {
     background-color: #555;
+}
+
+.container {
+  max-width: 848px;
+ margin: 41px 76px;
+ padding: 39px;
+ border-radius: 5px;
+ box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+ margin-left: 30%;
 }
 
 @media only screen and (max-width: 768px) {

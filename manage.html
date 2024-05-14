@@ -74,50 +74,7 @@
         </div>
     </div>
 </div>
-<div class="actions">
-    <h3>Manage Drivers</h3>
-    <button id="addDriverButton">+ Add Driver</button>
-</div>
 
-<table id="driverTable">
-    <thead>
-        <tr>
-            <th>S. No.</th>
-            <th>Driver Name</th>
-            <th>License Number</th>
-            <th>Status</th>
-            <th>Action</th>
-        </tr>
-    </thead>
-    <tbody id="drivers-table-body">
-    </tbody>
-</table>
-</main>
-
-
-<div id="driverEditPopup" class="popup">
-<div class="popup-content">
-    <span class="close-btn" id="close-Btn-Driver">&times;</span>
-    <h2 id="popupHeadingDriver">Add Driver</h2>
-    <div class="car-form" id="driverForm">
-        <form id="driverDetailsForm">
-            <div class="form-group">
-                <label for="image">Upload image:</label>
-                <input type="file" id="image" name="image" required>
-            </div>
-            <div class="form-group">
-                <label for="driverName">Driver Name:</label>
-                <input type="text" id="driverName" name="driverName" placeholder="Driver name, e.g. John Doe" required>
-            </div>
-            <div class="form-group">
-                <label for="licenseNumber">License Number:</label>
-                <input type="text" id="licenseNumber" name="licenseNumber" required>
-            <button type="submit" id="saveDriverBtn" onclick="saveDriverButton()">Save Driver</button>
-        </form>
-    </div>
-</div>
-</div>
-</div>
 
     <script src="script.js"></script>
     <script>
@@ -164,40 +121,7 @@
         });
 
 
-        document.addEventListener("DOMContentLoaded", function() {
-            const modalDriver = document.getElementById("driverEditPopup");
-            const spanDriver = document.querySelector(".closse-btn-driver");
-            const addDriverBtn = document.getElementById("addDriverButton");
-            const popupHeadingDriver = document.getElementById("popupHeadingDriver");
-            const driverDetailsForm = document.getElementById("driverDetailsForm");
-            const driverNameInput = document.getElementById("driverName");
 
-            function openDriverModal(heading, action) {
-                popupHeadingDriver.textContent = heading;
-                driverNameInput.disabled = action === 'Edit';
-
-                modalDriver.style.display = "block";
-            }
-
-            addDriverBtn.addEventListener("click", function() {
-                openDriverModal("Add Driver", 'Add');
-            });
-
-            spanDriver.addEventListener("click", function() {
-                modalDriver.style.display = "none";
-            });
-
-            window.addEventListener("click", function(event) {
-                if (event.target === modalDriver) {
-                    modalDriver.style.display = "none";
-                }
-            });
-
-            driverDetailsForm.addEventListener('submit', function(event) {
-                event.preventDefault();
-                modalDriver.style.display = "none";
-            });
-        });
     </script>
 </body>
 </html>

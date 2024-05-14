@@ -1,49 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- Boxicons -->
+	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
 	<link rel="stylesheet" href="admintask.css">
-    <title>Messages</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f2f2f2;
-        }
-        .container {
-     max-width: 848px;
-    margin: 41px 76px;
-    padding: 39px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin-left: 30%;
-}
-        h1 {
-            text-align: center;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
-        th, td {
-            padding: 10px;
-            text-align: left;
-            border-bottom: 1px solid #ddd;
-        }
-        th {
-            background-color: #f2f2f2;
-        }
+    
 
-    </style>
+	<title>Admin Page</title>
+  
 </head>
-
 <body>
 
-    
 
 	<section id="sidebar">
 		<a href="#" class="brand">
@@ -99,32 +69,58 @@
 		</ul>
 
 	</section>
-    <div class="container">
-        <h1>Customer Messages</h1>
-        <table>
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Contact Number</th>
-                    <th>Message</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>John Doe</td>
-                    <td>john@example.com</td>
-                    <td>123-456-7890</td>
-                    <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</td>
-                </tr>
-                <tr>
-                    <td>Jane Smith</td>
-                    <td>jane@example.com</td>
-                    <td>987-654-3210</td>
-                    <td>Nulla facilisi. Vestibulum ac quam nec ex egestas rutrum.</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+	<section id="content">
+		<nav>
+		
+
+		</nav>
+
+		<main>
+            <div class="message-panel" id="message-panel">
+                <div class="head">
+
+        
+                <h1>Customer Messages</h1>
+                </div>
+                <table class="message-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Contact Number</th>
+                            <th>Message</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>John Doe</td>
+                            <td>john@example.com</td>
+                            <td>123-456-7890</td>
+                            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</td>
+                        </tr>
+                        <tr>
+                            <td>Jane Smith</td>
+                            <td>jane@example.com</td>
+                            <td>987-654-3210</td>
+                            <td>Nulla facilisi. Vestibulum ac quam nec ex egestas rutrum.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+		</main>	
+
+
+</section>
+
+	
+    <script src="script.js"></script>
+	<script>
+
+
+
+
+
+    </script>
+    <script src="login.js"></script>
 </body>
 </html>
