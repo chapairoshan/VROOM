@@ -843,8 +843,8 @@ button[type="submit"]:hover {
     }
 
     nav a {
-        margin: 10px 0;
-        font-size: 15px;
+        margin: 7px 0;
+        font-size: 11px;
     }
     .home{
         background-image: url(icon/red.jpg);

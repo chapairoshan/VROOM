@@ -32,6 +32,7 @@
                     <th>Car Brand</th>
                     <th>Car Type</th>
                     <th>Vehicle Number</th>
+                    <th>Price per hr</th>
                     <th>Status</th>
                     <th>Action</th>
                 </tr>
@@ -68,6 +69,11 @@
                     <div class="form-group">
                         <label for="vehicleNumber">Vehicle Number:</label>
                         <input type="text" id="vehicleNumber" name="vehicleNumber" required>
+                    </div>
+                    <div class="form-group">
+                    <label for="priceHour">Price/Hour:</label>
+                    <input type="number" id="priceHour" name="priceHour" required><br>
+                    
                     <button type="submit" id="saveCarBtn" onclick="saveButton()">Save Car</button>
                 </form>
             </div>
@@ -86,6 +92,7 @@
             const popupHeading = document.getElementById("popupHeading");
             const carDetailsForm = document.getElementById("carDetailsForm");
             const carNameInput = document.getElementById("carName");
+            const carHour=document.getElementById("priceHour");
 
             function openModal(heading, action) {
                 popupHeading.textContent = heading;

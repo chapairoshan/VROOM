@@ -733,6 +733,7 @@ nav a:hover {
     flex-direction: column;
     align-items: center; */
     display: none;
+
 	}
   #sidebar .side-menu{
     font-size: 10px;
@@ -775,8 +776,9 @@ nav a:hover {
 }
 
 .cancel-btn {
-  width: 115px;
-  height: 29px;
+  width: 95px;
+  height: 27px;
+  font-size: 10px;
 
 }
 #content nav {
