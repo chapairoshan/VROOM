@@ -22,7 +22,7 @@
             <p id = "errorMessage">**Enter valid credentials**</p>
             <button type="submit" onclick="login()">Log In</button>
             <p class="forgot-password"><a href="forgot.html">Forgot Password?</a></p>
-            <p class="sign-in"><a href="Sign.html">Don't have account? Sign up</a></p>
+            <p class="sign-in"><a href="Sign.html">Don't have an account? Sign up!</a></p>
         </div>
         <!-- Popup box to show login messages-->
         <div id="successPopup" class="popup-box">
@@ -31,6 +31,33 @@
         </div>
     </div>
     <script> document.getElementById("errorMessage").style.display = "none"; </script>
+    <script>
+        // Function to handle pressing Enter key
+        function handleKeyPress(event) {
+            if (event.key === "Enter") {
+                const username = document.getElementById("loginUsername").value.trim();
+                const password = document.getElementById("loginPassword").value.trim();
+                
+                if (!username || !password) {
+                    // Both fields are empty, switch focus
+                    event.preventDefault();
+                    if (event.target === document.getElementById("loginUsername")) {
+                        document.getElementById("loginPassword").focus();
+                    } else {
+                        document.getElementById("loginUsername").focus();
+                    }
+                } else if(username && password) {
+                    // At least one field is filled, trigger login function
+                    login();
+                }
+            }
+        }
+
+        // Add event listener for Enter key press on input fields
+        document.getElementById("loginUsername").addEventListener("keypress", handleKeyPress);
+        document.getElementById("loginPassword").addEventListener("keypress", handleKeyPress);
+    </script>
+    
     <script src="script.js"> </script>
     <script src="login.js"></script>
 </body>

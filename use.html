@@ -8,6 +8,7 @@
 	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
 	<link rel="stylesheet" href="use.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
 
 
 
@@ -81,10 +82,13 @@
 
 	</section>
 	<section id="content">
-        <nav>
-		
-
-		</nav>
+        <div id="confirmationModal" class="modal">
+            <div class="modal-content">
+                <p id="confirmationMessage"> Are you sure you want to cancel this order?</p>
+                <button id="confirmCancelBtn">Yes</button>
+                <button id="cancelCancelBtn">No</button>
+            </div>
+        </div>
 
 		<main>
 			<div class="head-title">
@@ -110,7 +114,6 @@
 				<div class="order">
 					<div class="head">
 						<h3>Current Order</h3>
-				
 					</div>
 					<table>
 						<thead>
@@ -122,28 +125,12 @@
 								<th>Car Selected</th>
                                 <th>Fuel Type</th>
                                 <th>Brand Selected</th>
-
+                                <th>Action</th>
 							</tr>
 						</thead>
-						<tbody>
-							<tr>
-                                <td>1</td>
-
-                                <td>987465256</td>
-								<td>01-10-2021</td>
-                                <td>01-10-2021</td>
-
-                                <td>Sedans</td>
-                                <td>Petrol</td>
-                                <td>Kia</td>
-
-
-                            </tr>
-						
+						<tbody id="user-current-orders">
 						</tbody>
 					</table>
-                    <a href="#" class="cancel-btn">Cancel order</a>
-
                 </div>
 
 			<div class="table-data" id="Bookings">
@@ -162,75 +149,10 @@
 								<th>Car Selected</th>
                                 <th>Fuel Type</th>
                                 <th>Brand Selected</th>
-
+                                <th>Action</th>
 							</tr>
 						</thead>
-						<tbody>
-							<tr>
-                                <td>1</td>
-
-                                <td>987465256</td>
-								<td>01-10-2021</td>
-                                <td>01-10-2021</td>
-
-                                <td>Sedans</td>
-                                <td>Petrol</td>
-                                <td>Kia</td>
-
-
-                            </tr>
-							<tr>
-								<td>2</td>
-                                <td>987465256</td>
-								<td>01-10-2021</td>
-                                <td>01-10-2021</td>
-
-                                <td>SUVs</td>
-                                <td>Electric</td>
-                                <td>BYD</td>
-
-
-
-							</tr>
-							<tr>
-                                <td>3</td>
-
-                                <td>987465256</td>
-								<td>01-10-2021</td>
-                                <td>01-10-2021</td>
-
-                                <td>Economy Car</td>
-                                <td>Petrol</td>
-                                <td>Toyota</td>
-
-
-							</tr>
-							<tr>
-                                <td>4</td>
-
-                                <td>987465256</td>
-								<td>01-10-2021</td>
-                                <td>01-10-2021</td>
-
-                                <td>Sedans</td>
-                                <td>Petrol</td>
-                                <td>Kia</td>
-
-
-							</tr>
-							<tr>
-                                <td>5</td>
-
-                                <td>987465256</td>
-								<td>01-10-2021</td>
-                                <td>01-10-2021</td>
-
-                                <td>SUVs</td>
-                                <td>Electric</td>
-                                <td>BYD</td>
-
-
-							</tr>
+						<tbody id="user-previous-orders">
 						</tbody>
 					</table>
 				</div>
@@ -240,7 +162,7 @@
     <div class="head">
         <h3>Loyalty points</h3>
 
-        <p>Your Total Loyalty Points is<span> 70.5 </span></p>
+        <p>Your Total Loyalty Points is<span> 7.0 </span></p>
 
     </div>
     <table class="loyalty-table">
@@ -261,27 +183,6 @@
                 <td>Kia</td>
                 <td>7.0</td>
             </tr>
-            <tr>
-                <td>2</td>
-                <td>01-03-2023</td>
-                <td>SUV </td>
-                <td>BYD</td>
-
-                <td>7.0</td>
-            </tr>             <tr>
-                <td>3</td>
-                <td>01-03-2023</td>
-                <td>SUV </td>
-                <td>Toyota</td>
-                <td>7.0</td>
-            </tr>         <tr>
-                <td>4</td>
-                <td>01-03-2023</td>
-                <td>Sedan </td>
-                <td>Kia</td>
-                <td>10.0</td>
-            </tr>
-          
         </tbody>
     </table>
    
@@ -294,6 +195,7 @@
 	
     
 <script>
+    document.getElementById('confirmationModal').style.display = 'none';
     // Get the popup and the button to open it
     const popup = document.getElementById('profile-popup');
     const profileBtn = document.getElementById('profile-btn');
@@ -317,6 +219,7 @@
     });
 </script>
 <script src="script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 <script src="login.js"></script>
 </body>
 </html>

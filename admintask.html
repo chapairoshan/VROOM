@@ -75,7 +75,7 @@
 				</a>
 			</li>
 			<li>
-				<a href="Log.html" class="logout">
+				<a onclick="signOut()" class="logout">
 					<i class='bx bxs-log-out-circle' ></i>
 					<span class="text">Logout</span>
 				</a>
@@ -84,12 +84,11 @@
 
 	</section>
 	<section id="content">
-		<nav>
-		
-
-		</nav>
 
 		<main>
+            <div id="info-popup" class="information-popup">
+                    <!-- dynamic -->
+            </div>
 			<div class="head-title">
 				<div class="left">
 					<h1>Dashboard</h1>
@@ -107,177 +106,152 @@
                     </div>
                 </div>
             </div>
-            
 
 			<ul class="box-info" id="box-info">
 
 				<li>
 					<i class='bx bxs-group' ></i>
 					<span class="text">
-						<h3>10</h3>
+						<h3 id="total-users"></h3>
 						<p>Users</p>
 					</span>
 				</li>
                 <li>
 					<i class='bx bxs-car' ></i>
 					<span class="text">
-						<h3>10</h3>
+						<h3 id="total-cars"></h3>
 						<p>Cars</p>
 					</span>
 				</li>
                 <li>
 					<i class='bx bxs-book' ></i>
 					<span class="text">
-						<h3>20</h3>
+						<h3 id="total-bookings"></h3>
 						<p>Bookings</p>
 					</span>
 				</li>
                 <li>
 					<i class='bx bx-x icon' ></i>
 					<span class="text">
-						<h3>2</h3>
+						<h3 id="total-cancellations"></h3>
 						<p>Cancellation</p>
 					</span>
 				</li>
 			</ul>
 
-
 			<div class="table-data">
-				<div class="order">
-					<div class="head">
-						<h3>Recent Orders</h3>
-				
-					</div>
+                <div class="head">
+                    <h3>Recent Orders</h3>
+                </div>
+                <table id="orders-table">
+                    <thead>
+                        <tr>
+                            <th>Username</th>
+                            <th>Phone Number</th>
+                            <th>Date Order Pickup</th>
+                            <th>Date Order Drop</th>
+                            <th>Car Selected</th>
+                            <th>Fuel Type</th>
+                            <th>Brand Selected</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                </table>
+                <div class="order">
                     <!-- Table for most recent user orders -->
-					<table id="orders-table">
+                    <table id="orders-table">
                         <thead>
-                            <tr>
-                                <th>Username</th>
-                                <th>Phone Number</th>
-                                <th>Date Order Pickup</th>
-                                <th>Date Order Drop</th>
-                                <th>Car Selected</th>
-                                <th>Fuel Type</th>
-                                <th>Brand Selected</th>
-                                <th>Status</th>
-                            </tr>
+                            <!-- table head is not necessary here -->
                         </thead>
                         <tbody id="orders-table-body">
-                            <!--recent orders-->
+                            <!--recent orders would be added dynamically-->
                         </tbody>
                     </table>
-				</div>
+                </div>
 				<div class="car-collection" id="car-collection">
                     <div class="head">
                         <h3>Car Collection</h3>
-                        <a href="manage.html">
-                            <i class='bx bx-plus'></i>
-                          </a>
+                        <a href="manage.html" class="manage-button">Manage Cars</a>
                     </div>
-                    <ul id="car-collection-list">
-                        
+                    <ul class="car-collection-list" id="car-collection-list">
+                        <!-- Car images will be added here dynamically -->
                     </ul>
                 </div>
                 <div class="Drivers" id="Drivers">
                     <div class="head">
                         <h3>Available Drivers</h3>
-                        <a href="manage.html">
-                            <i class='bx bx-plus'></i>
-                          </a>                    </div>
-                    <ul class="Drivers-collection-list">
-                        <li>
-                            <img src="driver/d1.jpg" alt="Car 1">
-                            <i class='bx bx-dots-vertical-rounded' ></i>
-                        </li>
-                        <li>
-                            <img src="driver/d2.jpg" alt="Car 2">
-                            <i class='bx bx-dots-vertical-rounded' ></i>
-                        </li>
-                        <li>
-                            <img src="driver/d3.jpg" alt="Car 3">
-                            <i class='bx bx-dots-vertical-rounded' ></i>
-                        </li>
-                        <li>
-                            <img src="driver/d3.jpg" alt="Car 4">
-                            <i class='bx bx-dots-vertical-rounded' ></i>
-                        </li>
-                        <li>
-                            <img src="driver/d4.jpg" alt="Car 5">
-                            <i class='bx bx-dots-vertical-rounded' ></i>
-                        </li>
+                        <a href="manage2.html">
+                            <a href="manage2.html" class="manage-button">Manage Drivers</a>
+                          </a>                    
+                    </div>
+                    <ul class="Drivers-collection-list" id="Drivers-collection-list">
+                        <!-- Driver images will be added here dynamically -->
                     </ul>
                 </div>
-                
-                    <div class="message-panel" id="message-panel">
-                        <div class="head">
-                            <h3>Customer Messages</h3>
-                            <a href="Message.html" class="goback-btn">View all the messages</a>
-                        </div>
-                        <table class="message-table">
-                            <thead>
-                                <tr>
-                                    <th>Name</th>
-                                    <th>Email</th>
-                                    <th>Contact Number</th>
-                                    <th>Message</th>
-                                </tr>
-                            </thead>
-                            <tbody id="messages-table-body">
-                            </tbody>
-                        </table>
+                <div class="head">
+                    <h3>Customer Messages</h3>
+                </div>
+                <table class="message-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Contact Number</th>
+                            <th>Message</th>
+                        </tr>
+                    </thead>
+                </table>
+                <div class="message-panel" id="message-panel">
+                    <table class="message-table">
+                        <tbody id="messages-table-body" class="messages-table-body">
+                        </tbody>
+                    </table>
+                </div>
+                <div class="user-panel" id="user-panel">
+                    <div class="head">
+                        <h3>Our users</h3>
                     </div>
-
-                    <div class="user-panel" id="user-panel">
-                        <div class="head">
-                            <h3>Our users</h3>
-                        </div>
-                        <table class="user-table">
-                            <thead>
-                                <tr>
-                                    <th>Full Name</th>
-                                    <th>Address</th>
-                                    <th>Email</th>
-                                    <th>Contact Number</th>
-                                    <th>Username</th>
-                                    <th>Loyalty Points</th>
-                                    
-                                </tr>
-                            </thead>
-                            <tbody id="user-table-body">
-                            </tbody>
-                        </table>
-                    </div>
-                    
+                    <table class="user-table">
+                        <thead>
+                            <tr>
+                                <th>Full Name</th>
+                                <th>Address</th>
+                                <th>Email</th>
+                                <th>Contact Number</th>
+                                <th>Username</th>
+                                <th>Loyalty Points</th>
+                            </tr>
+                        </thead>
+                        <tbody id="user-table-body">
+                        </tbody>
+                    </table>
+                </div>
+            </div>  
 		</main>	
 
-
-</section>
+    </section>
 
 	
     <script src="script.js"></script>
-	<script>
+	<script> 
+        document.getElementById('info-popup').style.display = 'none';
+        const popup = document.getElementById('profile-popup');
+        const profileBtn = document.getElementById('profile-btn');
+        const closeBtn = document.querySelector('.close');
 
-const popup = document.getElementById('profile-popup');
-const profileBtn = document.getElementById('profile-btn');
-const closeBtn = document.querySelector('.close');
+        profileBtn.addEventListener('click', function() {
+            popup.style.display = 'block';
+        });
 
-profileBtn.addEventListener('click', function() {
-    popup.style.display = 'block';
-});
+        closeBtn.addEventListener('click', function() {
+            popup.style.display = 'none';
+        });
 
-closeBtn.addEventListener('click', function() {
-    popup.style.display = 'none';
-});
-
-window.addEventListener('click', function(event) {
-    if (event.target === popup) {
-        popup.style.display = 'none';
-    }
-});
-
-
-
-
+        window.addEventListener('click', function(event) {
+            if (event.target === popup) {
+                popup.style.display = 'none';
+            }
+        });
     </script>
     <script src="login.js"></script>
 </body>

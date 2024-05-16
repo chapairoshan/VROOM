@@ -19,7 +19,7 @@ $targetFile = "";
 // Handle image upload
 if (isset($_FILES['image'])) {
     // Specify the directory where you want to save the uploaded images
-    $uploadDirectory = "image/";
+    $uploadDirectory = "driver/";
 
     // Check if the directory exists, if not, create it
     if (!file_exists($uploadDirectory)) {
@@ -44,19 +44,18 @@ if (isset($_FILES['image'])) {
     }
 }
 
-if (isset($_POST['saveCars'])) {
-    $carName = $_POST['carName'];
-    $carBrand = $_POST['carBrand'];
-    $VehicleNumber = $_POST['VehicleNumber'];
-    $carType = $_POST['carType'];
-    $pph = $_POST['pph'];
+if (isset($_POST['saveDrivers'])) {
+    $driverName = $_POST['driverName'];
+    $license = $_POST['license'];
+    $phoneNumber = $_POST['phoneNumber'];
+    $address = $_POST['address'];
 
     // Get the targetFile value from the POST data
     $fileName = isset($_POST['fileName']) ? $_POST['fileName'] : "";
 
     // Prepare and execute statement
-    $stmt = $conn->prepare("INSERT INTO Cars (CarName, CarBrand, CarType, pph, VehicleNumber, Image) VALUES (?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param("ssssss", $carName, $carBrand, $carType, $pph, $VehicleNumber, $fileName);
+    $stmt = $conn->prepare("INSERT INTO Drivers (DriverName, License, Address, PhoneNumber, Image) VALUES (?, ?, ?, ?, ?)");
+    $stmt->bind_param("sssss", $driverName, $license, $address, $phoneNumber, $fileName);
     if ($stmt->execute()) {
         echo "success";
     } else {

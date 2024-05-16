@@ -60,7 +60,6 @@ th {
     background-color: #f2f2f2;
 }
 
-
 /* Equal gaps in table */
 th, td {
     width: calc(100% / 6); /* 6 columns */
@@ -94,11 +93,11 @@ tr:nth-child(even) {
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 
-
 #deleteButton, #editButton {
     display: flex; 
     flex-direction: column; 
-    align-items: center;}
+    align-items: center;
+}
 
 #editButton, #deleteButton {
     width: 100%; 
@@ -131,7 +130,16 @@ tr:nth-child(even) {
     background-color: #007BFF;
     color: #fff;
     border: none;
-    margin-left: 80%;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.addcarBtn {
+    background-color: #009f9c;
+    color: #fff;
+    border: none;
     padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
@@ -143,8 +151,62 @@ tr:nth-child(even) {
     background-color: #0056b3; 
 }
 
-
 #deleteButton:hover  {
     opacity: 0.8; 
     background-color: rgb(255, 0, 55);
 }
+
+
+/* Style for the file input */
+.custom-file-input {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Style for the file input label */
+.custom-file-label {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+/* Confirmation modal styling */
+#confirmationModal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 20px;
+    z-index: 1000;
+}
+
+.modal-content {
+    text-align: center;
+}
+
+/* Button styling */
+.confirm-btn {
+    margin: 0 10px;
+    padding: 8px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+#confirmDeleteBtn {
+    background-color: #d9534f; /* Red color for delete button */
+    color: #fff;
+}
+
+#cancelDeleteBtn {
+    background-color: #5bc0de; /* Blue color for cancel button */
+    color: #fff;
+}
+

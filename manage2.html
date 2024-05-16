@@ -1,0 +1,121 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VROOM Driver Rental Services Admin Panel</title>
+    <link rel="stylesheet" href="manage2.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Managing Drivers</h1>
+    </header>
+    
+    <main>
+        <div class="actions">
+            <a href="admintask.html">
+                <button class="gobackBtn">Go Back to Dashboard</button>
+            </a>
+            <button class="add-driverBtn" id="addDriverButton">+ Add Driver</button>
+        </div>
+
+        <table id="driverTable">
+            <thead>
+                <tr>
+                    <th>S. No.</th>
+                    <th>Driver Name</th>
+                    <th>License Number</th>
+                    <th>Phone Number</th>
+                    <th>Address</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="drivers-table-body">
+            </tbody>
+        </table>
+    </main>
+    
+
+    <div id="driverEditPopup" class="popup">
+        <div class="popup-content">
+            <span class="close-btn" id="closeBtn">&times;</span>
+            <h2 id="popupHeading">Add Driver</h2>
+            <div class="driver-form" id="driverForm">
+                <form action="" id="driverDetailsForm">
+                    <div class="form-group">
+                        <span class="custom-file-label">Upload Image:</span>
+                        <input type="file" class="custom-file-input" id="driver-image" name="image" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="driverName">Driver Name:</label>
+                        <input type="text" id="driverName" name="driverName" placeholder="Driver's name, e.g. Ram" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="licenseNum">License Number:</label>
+                        <input type="text" id="licenseNum" name="licenseNum" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phoneNumber">Phone Number:</label>
+                        <input type="text" id="phoneNumber" name="phoneNumber" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="address">Address:</label>
+                        <input type="text" id="address" name="address" required>
+                    </div>
+                    <button type="submit" id="saveDriverBtn" onclick="saveDriverButton()">Save</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</main>
+
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const modal = document.getElementById("driverEditPopup");
+            const span = document.querySelector(".close-btn");
+            const addDriverBtn = document.getElementById("addDriverButton");
+            const editDriverBtns = document.querySelectorAll(".editButton");
+            const popupHeading = document.getElementById("popupHeading");
+            const driverDetailsForm = document.getElementById("driverDetailsForm");
+            const driverNameInput = document.getElementById("driverName");
+
+            function openModal(heading, action) {
+                popupHeading.textContent = heading;
+                driverNameInput.disabled = action === 'Edit';
+
+                modal.style.display = "block";
+            }
+
+            addDriverBtn.addEventListener("click", function() {
+                openModal("Add Driver", 'Add');
+            });
+
+            editDriverBtns.forEach(function(btn) {
+                btn.addEventListener("click", function() {
+                    openModal("Edit Driver", 'Edit');
+                });
+            });
+
+            span.addEventListener("click", function() {
+                modal.style.display = "none";
+            });
+
+            window.addEventListener("click", function(event) {
+                if (event.target === modal) {
+                    modal.style.display = "none";
+                }
+            });
+
+            driverDetailsForm.addEventListener('submit', function(event) {
+                event.preventDefault();
+                modal.style.display = "none";
+            });
+        });
+    </script>
+</body>
+</html>

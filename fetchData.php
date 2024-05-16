@@ -20,6 +20,16 @@ if ($result->num_rows > 0) {
     }
 }
 
+$sql = "SELECT * FROM Drivers";
+$result = $conn->query($sql);
+
+$drivers = array();
+if ($result->num_rows > 0) {
+    while($row = $result->fetch_assoc()) {
+        $drivers[] = $row;
+    }
+}
+
 // Uncomment if needed
 /*
 $sql = "SELECT * FROM LoyaltyPoints";
@@ -65,6 +75,7 @@ if ($result->num_rows > 0){
 
 $data = array(
     'cars' => $cars,
+    'drivers' => $drivers,
     'orders' => $orders,
     'messages' => $messages,
     'users' => $users

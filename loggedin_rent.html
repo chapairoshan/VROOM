@@ -65,9 +65,9 @@
                 <select id="fuel-type" name="fuel-type"></select>
                 <br>
                 <label for="pickup-date">Select Pickup Date:</label>
-                <input type="date" id="pickup-date" name="pickup-date" required>
+                <input type="date" id="pickup-date" name="pickup-date" required min="yyyy-mm-dd">
                 <label for="drop-date">Select Drop Date:</label>
-                <input type="date" id="drop-date" name="drop-date" required><br>
+                <input type="date" id="drop-date" name="drop-date" required min="yyyy-mm-dd"><br>
                 <button onclick="saveOrder()">Submit</button>
             </form>
         </div>
@@ -166,6 +166,19 @@
         <p>&copy; 2024 Vroom. All rights reserved.</p>
     </footer>
     <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get today's date
+            var today = new Date().toISOString().split('T')[0];
+    
+            // Set min attribute for pickup-date input
+            document.getElementById('pickup-date').min = today;
+    
+            // Set min attribute for drop-date input
+            document.getElementById('drop-date').min = today;
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <script src="login.js"></script>
 </body>
 </html>
