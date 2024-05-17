@@ -489,7 +489,7 @@ function ShowUserCurrentOrders(data) {
                 <td>${order.FuelType}</td>
                 <td>${order.BrandSelected}</td>
                 <td>
-                <button onclick="editOrder(${order.OrderID})" id="editButton">Edit</button>
+                <button onclick="editOrder(${order.OrderID})" id="editButton">Hire Driver</button>
                 <button onclick="cancelOrder(${order.OrderID})" id="deleteButton">Cancel</button>
                 </td>
 

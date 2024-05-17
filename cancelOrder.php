@@ -47,8 +47,8 @@ if (isset($_GET['deleteID'])) {
         echo json_encode(["success" => false, "error" => "Error deleting car"]);
     }
 } else {
-    // If serial number is not provided, return an error message
-    echo json_encode(["success" => false, "error" => "Serial number not provided"]);
+    // If Delete ID is not provided, return an error message
+    echo json_encode(["success" => false, "error" => "Delete ID not provided"]);
 }
 
 // Close the database connection

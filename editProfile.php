@@ -82,7 +82,7 @@
     </style>
 </head>
 <body>
-    <h2>Edit Car Details</h2>
+    <h2>Edit Personal Details</h2>
     <?php
     // Establish database connection
     $servername = "localhost";
@@ -98,8 +98,8 @@
     }
 
     // Fetch car details based on serial number
-    if (isset($_GET['serialNumber'])) {
-        $serialNumber = $_GET['serialNumber'];
+    if (isset($_GET['username'])) {
+        $username = $_GET['username'];
         
         // Check if the form is submitted with the updated car details
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -113,7 +113,7 @@
             // Update the car details in the database
             $sql = "UPDATE Cars SET CarName=?, CarBrand=?, CarType=?, VehicleNumber=?, Status=? WHERE SerialNumber=?";
             $stmt = $conn->prepare($sql);
-            $stmt->bind_param("sssssi", $carName, $carBrand, $carType, $vehicleNumber, $status, $serialNumber);
+            $stmt->bind_param("sssssi", $carName, $carBrand, $carType, $vehicleNumber, $status, $username);
             
             if ($stmt->execute()) {
                 // If update is successful, show success message using Toastify.js
@@ -147,7 +147,7 @@
         // Fetch car details from the database
         $sql = "SELECT * FROM Cars WHERE SerialNumber = ?";
         $stmt = $conn->prepare($sql);
-        $stmt->bind_param("i", $serialNumber);
+        $stmt->bind_param("i", $username);
         $stmt->execute();
         $result = $stmt->get_result();
         $car = $result->fetch_assoc();
@@ -157,7 +157,7 @@
     ?>
 
     <!-- Car details form -->
-    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]) . '?serialNumber=' . $serialNumber; ?>" method="post">
+    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]) . '?username=' . $username; ?>" method="post">
         <label for="carName">Car Name:</label>
         <input type="text" id="carName" name="carName" value="<?php echo isset($car['CarName']) ? $car['CarName'] : ''; ?>"><br><br>
         
@@ -176,7 +176,7 @@
             <option value="Unavailable" <?php if(isset($car['Status']) && $car['Status'] == 'Unavailable') echo 'selected'; ?>>Unavailable</option>
         </select><br><br>
         
-        <input type="hidden" name="serialNumber" value="<?php echo $serialNumber; ?>">
+        <input type="hidden" name="username" value="<?php echo $username; ?>">
         <input type="submit" value="Update">
     </form>
 
