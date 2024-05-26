@@ -14,23 +14,23 @@ if ($conn->connect_error) {
 }
 
 // Check if the serial number is provided in the request
-if (isset($_GET['serialNumber'])) {
-    $serialNumber = $_GET['serialNumber'];
+if (isset($_GET['DriverID'])) {
+    $DriverID = $_GET['DriverID'];
 
     // Prepare and execute the delete statement
-    $stmt = $conn->prepare("DELETE FROM Cars WHERE SerialNumber = ?");
-    $stmt->bind_param("i", $serialNumber);
+    $stmt = $conn->prepare("DELETE FROM Drivers WHERE DriverID = ?");
+    $stmt->bind_param("i", $DriverID);
     
     if ($stmt->execute()) {
         // If deletion is successful, return a success message
         echo json_encode(["success" => true]);
     } else {
         // If there's an error during deletion, return an error message
-        echo json_encode(["success" => false, "error" => "Error deleting car"]);
+        echo json_encode(["success" => false, "error" => "Error deleting Driver"]);
     }
 } else {
     // If serial number is not provided, return an error message
-    echo json_encode(["success" => false, "error" => "Serial number not provided"]);
+    echo json_encode(["success" => false, "error" => "DriverID not provided"]);
 }
 
 // Close the database connection

@@ -39,7 +39,7 @@
         <div class="car-section" data-name="Economy">
             <img src="icon/economy.png" alt="Car 3" onclick="showDescription('Economy')">
             <h3>EconomyCars</h3>
-            <button class="reserve-button" onclick="openPopup()">Reserve</button>
+            <button><a href="Log.html">Reserve</a></button>
         </div>
     </div>
 
@@ -48,29 +48,6 @@
         <p id="car-info"></p>
     </div>
 
-    <div id="popup" class="hidden">
-        <div class="popup-content">
-            <span class="close-btn" onclick="closePopup()">&times;</span>
-            <form id="reservation-form">
-                <input type="text" placeholder="Name" id="cName">
-                <input type="email" placeholder="Email" id="cEmail">
-                <input type="text" placeholder="Phone Number" id="cMobile">
-                <label for="car-type">Select Car Name:</label>
-                <select id="car-type" name="car-type"></select>
-                <label for="car-brand">Select Brand Type:</label>
-                <select id="car-brand" name="car-brand"></select>
-                <label for="fuel-type">Select Fuel Type:</label>
-                <select id="fuel-type" name="fuel-type"></select>
-                <br>
-                <label for="pickup-date">Select Pickup Date:</label>
-                <input type="date" id="pickup-date" name="pickup-date" required min="yyyy-mm-dd">
-                <label for="drop-date">Select Drop Date:</label>
-                <input type="date" id="drop-date" name="drop-date" required min="yyyy-mm-dd"><br>
-                <button onclick="saveOrder()">Submit</button>
-
-            </form>
-        </div>
-    </div>
     
 
     <h2>Brands available</h2>

@@ -25,9 +25,10 @@ if (isset($_POST['saveOrder'])) {
     $pickdate = $_POST['pickdate'];
     $dropdate = $_POST['dropdate'];
     $username = $_POST['username'];
+    $spclMessage = $_POST['spclMsg'];
     // Prepare and execute statement to insert data into database
-    $stmt = $conn->prepare("INSERT INTO PreviousOrders (FullName, PhoneNumber, DateOrderPickup, DateOrderDrop, CarSelected, FuelType, BrandSelected, username) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param("ssssssss", $cName, $cMobile, $pickdate, $dropdate, $cartype, $fueltype, $carbrand, $username);
+    $stmt = $conn->prepare("INSERT INTO PreviousOrders (FullName, PhoneNumber, DateOrderPickup, DateOrderDrop, CarSelected, FuelType, BrandSelected, username, spclMsg) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param("sssssssss", $cName, $cMobile, $pickdate, $dropdate, $cartype, $fueltype, $carbrand, $username, $spclMessage);
 
     // Execute the statement
     if ($stmt->execute()) {

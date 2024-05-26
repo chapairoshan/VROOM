@@ -514,6 +514,11 @@ body {
     font-weight: 500;
   }
 
+  .order {
+    max-height: 400px;
+    overflow-y: auto;
+  }
+
   
 #deleteButton, #editButton {
   display: flex; 

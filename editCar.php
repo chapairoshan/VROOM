@@ -122,7 +122,7 @@
                         Toastify({
                             text: 'Car details updated successfully!',
                             duration: 3000,
-                            gravity: 'bottom',
+                            gravity: 'top',
                             position: 'right',
                             backgroundColor: '#4CAF50',
                             stopOnFocus: true,
@@ -135,7 +135,7 @@
                         Toastify({
                             text: 'Failed to update car details!',
                             duration: 3000,
-                            gravity: 'bottom',
+                            gravity: 'top',
                             position: 'right',
                             backgroundColor: '#f44336',
                             stopOnFocus: true,

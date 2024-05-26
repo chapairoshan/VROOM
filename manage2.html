@@ -7,6 +7,8 @@
     <title>VROOM Driver Rental Services Admin Panel</title>
     <link rel="stylesheet" href="manage2.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    
 </head>
 <body>
     <header>
@@ -14,6 +16,13 @@
     </header>
     
     <main>
+        <div id="confirmationModal" class="modal">
+            <div class="modal-content">
+                <p>Are you sure you want to delete this Driver?</p>
+                <button id="confirmDeleteBtn">Yes</button>
+                <button id="cancelDeleteBtn">No</button>
+            </div>
+        </div>
         <div class="actions">
             <a href="admintask.html">
                 <button class="gobackBtn">Go Back to Dashboard</button>
@@ -75,6 +84,8 @@
 
     <script src="script.js"></script>
     <script>
+        document.getElementById('confirmationModal').style.display = 'none';
+
         document.addEventListener("DOMContentLoaded", function() {
             const modal = document.getElementById("driverEditPopup");
             const span = document.querySelector(".close-btn");
@@ -117,5 +128,7 @@
             });
         });
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    
 </body>
 </html>

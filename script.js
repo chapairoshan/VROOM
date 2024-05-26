@@ -254,11 +254,25 @@ function signup() {
     var password = document.getElementById('signupPassword').value;
     var verifypassword = document.getElementById('verifyPassword').value;
 
-    if (mobile == "" || mobile < 10) {
+    if (mobile.length !== 10) {
         errorMessage.innerText = "Mobile number should be 10 digits long";
         errorMessage.style.display = "block";
         return;
     }
+    
+
+    if (!fullName) {
+        errorMessage.innerText = "Enter your name";
+        errorMessage.style.display = "block";
+        return;
+    }
+
+    if (!address) {
+        errorMessage.innerText = "Enter your address";
+        errorMessage.style.display = "block";
+        return;
+    }
+
 
     if (!isValidUsername(username)) {
         errorMessage.innerText = "**Enter a valid username**";
@@ -269,6 +283,13 @@ function signup() {
     if (!isValidPassword(password)) {
         errorMessage.innerText = "**Enter a valid password**";
         errorMessage.style.display = "block";
+        return;
+    }
+
+    var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+    if (!emailPattern.test(email)) {
+        document.getElementById("errorMessage").innerText = "**Enter a valid email address**";
+        document.getElementById("errorMessage").style.display = "block";
         return;
     }
 
@@ -306,13 +327,6 @@ xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 xhr.send("signup=true&fullName=" + fullName + "&address=" + address + "&email=" + email + "&mobile=" + mobile + "&username=" + username + "&password=" + password);
 }
 
-document.addEventListener("DOMContentLoaded", function() {
-const contactForm = document.getElementById("contactForm");
-
-// contactForm.addEventListener("submit", function(event) {
-//     event.preventDefault();
-//     contactUs();
-// });
 
 function contactUs() {
     var name = document.getElementById('name').value;
@@ -320,13 +334,39 @@ function contactUs() {
     var message = document.getElementById('message').value;
     var email = document.getElementById('email').value;
 
+    if(!phone){
+        return;
+    }
+
+    if(!name){
+        return;
+    }
+
+    if(!message){
+        return;
+    }
+
+    if(!email){
+        return;
+    }
+
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function() {
         if (this.readyState == 4) {
             if (this.status == 200) {
                 var response = this.responseText;
                 if (response.trim() === "success") {
-                    alert("Message sent successfully!");
+                    Toastify({
+                        text: "Message Send successfully!",
+                        duration: 3000,
+                        gravity: "top",
+                        position: "right",
+                        backgroundColor: "green",
+                        stopOnFocus: true
+                    }).showToast();
+                    setTimeout(() => {
+                        location.reload();
+                    }, 3000);
                 } else {
                     alert("Message sending failed. Please try again later.");
                 }
@@ -340,7 +380,6 @@ function contactUs() {
     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhr.send("contactus=true&name=" + encodeURIComponent(name) + "&phone=" + encodeURIComponent(phone) + "&email=" + encodeURIComponent(email) + "&message=" + encodeURIComponent(message));
 }
-});
 
 function fetchAndDisplayData() {
     fetch('fetchData.php')
@@ -368,8 +407,12 @@ function showStats(data) {
     const totalBookings = data.orders.length;
     const totalCancellations = data.orders.filter(order => order.status === 'Cancelled').length;
 
+    const totalUsersElement = document.getElementById('total-users');
+    if(!totalUsersElement){
+        return;
+    }
     // Update the HTML elements with the calculated values
-    document.getElementById('total-users').textContent = totalUsers;
+    totalUsersElement.textContent = totalUsers;
     document.getElementById('total-cars').textContent = totalCars;
     document.getElementById('total-bookings').textContent = totalBookings;
     document.getElementById('total-cancellations').textContent = totalCancellations;
@@ -406,6 +449,7 @@ function generateROTableRows(data) {
             <td>${order.CarSelected}</td>
             <td>${order.FuelType}</td>
             <td>${order.BrandSelected}</td>
+            <td>${order.spclMsg}</td>
             <td>${order.status}</td>
         `;
         
@@ -488,8 +532,9 @@ function ShowUserCurrentOrders(data) {
                 <td>${order.CarSelected}</td>
                 <td>${order.FuelType}</td>
                 <td>${order.BrandSelected}</td>
+                <td>${order.spclMsg}</td>
                 <td>
-                <button onclick="editOrder(${order.OrderID})" id="editButton">Hire Driver</button>
+                <button onclick="editOrder(${order.OrderID})" id="editButton">Edit</button>
                 <button onclick="cancelOrder(${order.OrderID})" id="deleteButton">Cancel</button>
                 </td>
 
@@ -499,6 +544,10 @@ function ShowUserCurrentOrders(data) {
             num++;
         }
     });
+}
+
+function editOrder(OrderID) {
+    window.location.href = `editOrder.php?OrderID=${OrderID}`;
 }
 
 function cancelOrder(orderID) {
@@ -582,6 +631,7 @@ function ShowUserPreviousOrders(data) {
                 <td>${order.CarSelected}</td>
                 <td>${order.FuelType}</td>
                 <td>${order.BrandSelected}</td>
+                <td>${order.spclMsg}</td>
                 <td>
                 <button onclick="deleteOrder(${order.OrderID})" id="deleteButton">Delete</button>
                 </td>
@@ -724,6 +774,8 @@ function editCar(serialNumber) {
     window.location.href = `editCar.php?serialNumber=${serialNumber}`;
 }
 
+
+
 function generateDMTableRows(data) {
     const tableBody = document.getElementById('messages-table-body');
     if (!tableBody) return;
@@ -844,7 +896,7 @@ function saveCars(fileName) {
                     location.reload();
                 }, 3000);
             } else {
-                console.log("bug feature");
+                console.log("error saving car details!");
             }
         }
     };
@@ -879,45 +931,6 @@ function checkLogin(){
     }
 }
 
-function saveOrder() {
-    var cName = document.getElementById('cName').value;
-    var cEmail = document.getElementById('cEmail').value;
-    var cMobile = document.getElementById('cMobile').value;
-    var cartype = document.getElementById('car-type').value;
-    var carbrand = document.getElementById('car-brand').value;
-    var fueltype = document.getElementById('fuel-type').value;
-    var pickdate = document.getElementById('pickup-date').value;
-    var dropdate = document.getElementById('drop-date').value;
-    var username = localStorage.getItem('username');
-
-    var xhr = new XMLHttpRequest();
-    console.log(cName);
-    xhr.onreadystatechange = function() {
-        console.log(this.responseText);
-        if (this.readyState == 4) {
-            var response = this.responseText;
-            console.log(response);
-            if (response.trim() === "success") {
-                Toastify({
-                    text: "Car booked successfully!",
-                    duration: 3000,
-                    gravity: "top",
-                    position: "right",
-                    backgroundColor: "green",
-                    stopOnFocus: true
-                }).showToast();
-                setTimeout(() => {
-                    location.reload();
-                }, 3000);
-            } else {
-                console.log("Failed to store order");
-            }
-        }
-    };
-    xhr.open("POST", "saveOrder.php", true);
-    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xhr.send("saveOrder=true&cName=" + cName + "&cEmail=" + cEmail + "&cMobile=" + cMobile + "&cartype=" + cartype + "&carbrand=" + carbrand + "&fueltype=" + fueltype + "&pickdate=" + pickdate + "&dropdate=" + dropdate + "&username=" + username);
-}
 
 function uploadDriverImage() {
     return new Promise((resolve, reject) => {
@@ -1049,7 +1062,7 @@ function generateDriversTableRows(data) {
             <td>${item.Status}</td>
             <td>
                 <button onclick="window.location.href = 'editDriver.php?DriverID=${item.DriverID}'" id="editButton">Edit</button>
-                <button onclick="editDriver(${item.DriverID})" id="deleteButton">Delete</button>
+                <button onclick="deleteDriver(${item.DriverID})" id="deleteButton">Delete</button>
             </td>
         `;
         // Append the new row to the existing table body
@@ -1057,3 +1070,69 @@ function generateDriversTableRows(data) {
     });
 }
 
+function deleteDriver(DriverID) {
+    // Show the custom confirmation modal
+    const confirmationModal = document.getElementById('confirmationModal');
+    confirmationModal.style.display = 'block';
+
+    // Remove previous event listeners to avoid multiple bindings
+    const confirmDeleteBtn = document.getElementById('confirmDeleteBtn');
+    const newConfirmDeleteBtn = confirmDeleteBtn.cloneNode(true);
+    confirmDeleteBtn.parentNode.replaceChild(newConfirmDeleteBtn, confirmDeleteBtn);
+
+    // Add event listener to the new confirm delete button
+    newConfirmDeleteBtn.addEventListener('click', function() {
+        // Send a request to the server to delete the driver
+        fetch(`deleteDriver.php?DriverID=${DriverID}`, {
+            method: 'DELETE'
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                // Display success message using Toastify
+                Toastify({
+                    text: "Driver deleted successfully!",
+                    duration: 3000,
+                    gravity: "top",
+                    position: "right",
+                    backgroundColor: "green",
+                    stopOnFocus: true
+                }).showToast();
+                setTimeout(() => {
+                    location.reload();
+                }, 3000);
+            } else {
+                // Display error message using Toastify
+                Toastify({
+                    text: data.error || "Error deleting driver",
+                    duration: 3000,
+                    gravity: "top",
+                    position: "right",
+                    backgroundColor: "red",
+                    stopOnFocus: true
+                }).showToast();
+                console.error('Error deleting driver:', data.error);
+            }
+        })
+        .catch(error => {
+            // Display error message using Toastify
+            Toastify({
+                text: "Error deleting driver",
+                duration: 3000,
+                gravity: "top",
+                position: "right",
+                backgroundColor: "red",
+                stopOnFocus: true
+            }).showToast();
+            console.error('Error deleting driver:', error);
+        });
+
+        // Hide the confirmation modal
+        confirmationModal.style.display = 'none';
+    });
+
+    document.getElementById('cancelDeleteBtn').addEventListener('click', function() {
+        // Hide the confirmation modal
+        confirmationModal.style.display = 'none';
+    });
+}

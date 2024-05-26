@@ -76,6 +76,53 @@ if(isset($_POST['contactus'])) {
     }
 }
 
+if (isset($_POST['passwordChange'])) {
+    $cp = $_POST['currentPassword'];
+    $np = $_POST['newPassword'];
+    $username = $_POST['username'];
+
+    $hcp = hash('sha256', $cp);
+
+    // Retrieve the current password hash for the 'admin' user
+    $stmt = $conn->prepare("SELECT password FROM users WHERE username = ?");
+    $stmt->bind_param("s", $username);
+    $stmt->execute();
+    $stmt->store_result();
+
+    // Check if any rows are returned
+    if ($stmt->num_rows > 0) {
+        // Bind the result
+        $stmt->bind_result($storedPassword);
+        $stmt->fetch();
+
+        // Verify the current password
+        if (($hcp == $storedPassword)) {
+            $newPasswordHash = hash('sha256', $np);
+
+            // Prepare and execute SQL statement to update the password
+            $updateStmt = $conn->prepare("UPDATE users SET password = ? WHERE username = ?");
+            $updateStmt->bind_param("ss", $newPasswordHash, $username);
+
+            if ($updateStmt->execute()) {
+                echo "success";
+            } else {
+                echo "Error updating password: " . $conn->error;
+            }
+
+            // Close the update statement
+            $updateStmt->close();
+        } else {
+            echo $hcp, $storedPassword;
+        }
+    } else {
+        echo "User not found";
+    }
+
+    // Close the select statement
+    $stmt->close();
+}
+
+
 
 
 $conn->close();

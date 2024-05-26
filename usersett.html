@@ -6,6 +6,8 @@
     <title>User page</title>
 
     <!-- Boxicons -->
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="use.css">
     <style>
@@ -40,7 +42,7 @@
     <section id="sidebar">
 		<a href="#" class="brand">
             <i class='bx bxs-user'></i>
-    		<span class="text">User Pannel</span>
+    		<span class="text" id="username"> User Pannel</span>
 		</a>
 		<ul class="side-menu top">
 
@@ -92,13 +94,44 @@
     <script>
         document.getElementById('passwordForm').addEventListener('submit', function(event) {
             event.preventDefault();
-
+    
             const currentPassword = document.getElementById('currentPassword').value;
             const newPassword = document.getElementById('newPassword').value;
-
-            console.log('Current Password:', currentPassword);
-            console.log('New Password:', newPassword);
+            const userName = localStorage.getItem('username');
+    
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function() {
+                if (this.readyState == 4) {
+                    if (this.status == 200) {
+                        var response = this.responseText;
+                        if (response.trim() === "success") {
+                            Toastify({
+                                text: "Password change successful",
+                                duration: 3000,
+                                gravity: "top",
+                                position: "right",
+                                backgroundColor: "green",
+                                stopOnFocus: true
+                            }).showToast();
+                            setTimeout(() => {
+                                location.reload();
+                            }, 3000);
+                        } else {
+                            alert("Password change failed. Please try again later.");
+                        }
+                    } else {
+                        alert("Error: " + this.status);
+                    }
+                }
+            };
+    
+            xhr.open("POST", "auth.php", true);
+            xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xhr.send("passwordChange=true&currentPassword=" + encodeURIComponent(currentPassword) + "&newPassword=" + encodeURIComponent(newPassword) + "&username=" + userName);
         });
     </script>
+
+    <script src="script.js"></script>
+    <script src="login.js"></script>
 </body>
 </html>

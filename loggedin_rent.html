@@ -6,7 +6,7 @@
     <title>Vroom</title>
     <link rel="stylesheet" href="rent.css">
     <link rel="stylesheet" href="style.css"> 
-
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap">
 </head>
 <body>
@@ -25,24 +25,16 @@
         
     </nav>
     </header>    
-    <h2>Rent Car By Type</h2>
+    <h2>Rent a Car </h2>
 
     <div id="order-section" class="center">
-        <div class="car-section" data-name="SUV">
-            <img src="icon/toyota.jpg" alt="Car 1" onclick="showDescription('SUV')">
-            <h3>SUV</h3>
-            <button class="reserve-button" onclick="openPopup()">Reserve</button>
-        </div>
-        <div class="car-section" data-name="Sedans">
+       
+        <div class="car-section" data-name="Book Cars">
             <img src="icon/mecedes.webp" alt="Car 2" onclick="showDescription('Sedans')">
             <h3>Sedans</h3>
             <button class="reserve-button" onclick="openPopup()">Reserve</button>
         </div>
-        <div class="car-section" data-name="Economy">
-            <img src="icon/economy.png" alt="Car 3" onclick="showDescription('Economy')">
-            <h3>Economy Cars</h3>
-            <button class="reserve-button" onclick="openPopup()">Reserve</button>
-        </div>
+        
     </div>
 
     <div id="car-description" class="hidden">
@@ -53,7 +45,7 @@
     <div id="popup" class="hidden">
         <div class="popup-content">
             <span class="close-btn" onclick="closePopup()">&times;</span>
-            <form id="reservation-form">
+            <form id="reservation-form" onsubmit="saveOrder(event)">
                 <input type="text" placeholder="Name" id="cName">
                 <input type="email" placeholder="Email" id="cEmail">
                 <input type="text" placeholder="Phone Number" id="cMobile">
@@ -67,9 +59,11 @@
                 <label for="pickup-date">Select Pickup Date:</label>
                 <input type="date" id="pickup-date" name="pickup-date" required min="yyyy-mm-dd">
                 <label for="drop-date">Select Drop Date:</label>
-                <input type="date" id="drop-date" name="drop-date" required min="yyyy-mm-dd"><br>
-                <button onclick="saveOrder()">Submit</button>
-            </form>
+                <input type="date" id="drop-date" name="drop-date" required min="yyyy-mm-dd">
+                <label for="spclMessage">Special Message:</label>
+                <input type="text" id="spclMessage" name="spclMessage"><br>
+                <button type="submit">Submit</button>
+            </form>            
         </div>
     </div>
     
@@ -165,7 +159,7 @@
         </div>
         <p>&copy; 2024 Vroom. All rights reserved.</p>
     </footer>
-    <script src="script.js"></script>
+    <script src="order.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // Get today's date
@@ -179,6 +173,7 @@
         });
     </script>
     <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    
     <script src="login.js"></script>
 </body>
 </html>
