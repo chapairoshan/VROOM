@@ -107,13 +107,14 @@
             $carName = $_POST['carName'];
             $carBrand = $_POST['carBrand'];
             $carType = $_POST['carType'];
+            $pph = $_POST['pph'];
             $vehicleNumber = $_POST['vehicleNumber'];
             $status = $_POST['status'];
 
             // Update the car details in the database
-            $sql = "UPDATE Cars SET CarName=?, CarBrand=?, CarType=?, VehicleNumber=?, Status=? WHERE SerialNumber=?";
+            $sql = "UPDATE Cars SET CarName=?, CarBrand=?, CarType=?, pph=?, VehicleNumber=?, Status=? WHERE SerialNumber=?";
             $stmt = $conn->prepare($sql);
-            $stmt->bind_param("sssssi", $carName, $carBrand, $carType, $vehicleNumber, $status, $serialNumber);
+            $stmt->bind_param("ssssssi", $carName, $carBrand, $carType, $pph, $vehicleNumber, $status, $serialNumber);
             
             if ($stmt->execute()) {
                 // If update is successful, show success message using Toastify.js
@@ -166,6 +167,9 @@
         
         <label for="carType">Car Type:</label>
         <input type="text" id="carType" name="carType" value="<?php echo isset($car['CarType']) ? $car['CarType'] : ''; ?>"><br><br>
+
+        <label for="pph">Price Per Hour:</label>
+        <input type="text" id="pph" name="pph" value="<?php echo isset($car['pph']) ? $car['pph'] : ''; ?>"><br><br>
         
         <label for="vehicleNumber">Vehicle Number:</label>
         <input type="text" id="vehicleNumber" name="vehicleNumber" value="<?php echo isset($car['VehicleNumber']) ? $car['VehicleNumber'] : ''; ?>"><br><br>

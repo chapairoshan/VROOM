@@ -97,17 +97,6 @@
 				</div>
 
 			</div>
-
-            <div id="profile-popup" class="popup">
-                <div class="popup-content">
-                    <span class="close">&times;</span>
-                    <h2>Profile</h2>
-                    <div class="profile-info">
-                        <p>Username: <span class="text" id="username">username</span></p>
-                    </div>
-                    <a href="editProfile.html" id="edit-profile-button">Edit Profile</a>
-                </div>
-            </div>
             
             <div class="table-data" id="Bookings">
 				<div class="order">
@@ -197,27 +186,6 @@
     
 <script>
     document.getElementById('confirmationModal').style.display = 'none';
-    // Get the popup and the button to open it
-    const popup = document.getElementById('profile-popup');
-    const profileBtn = document.getElementById('profile-btn');
-    const closeBtn = document.querySelector('.close');
-
-    // Open the popup when the button is clicked
-    profileBtn.addEventListener('click', function() {
-        popup.style.display = 'block';
-    });
-
-    // Close the popup when the close button is clicked
-    closeBtn.addEventListener('click', function() {
-        popup.style.display = 'none';
-    });
-
-    // Close the popup when clicking outside of it
-    window.addEventListener('click', function(event) {
-        if (event.target === popup) {
-            popup.style.display = 'none';
-        }
-    });
 </script>
 <script src="script.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
