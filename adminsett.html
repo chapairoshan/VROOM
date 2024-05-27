@@ -110,7 +110,14 @@
 							location.reload();
 						}, 3000);
 					} else {
-						alert("Password change failed. Please try again later.");
+						Toastify({
+                                text: "Password change failed",
+                                duration: 3000,
+                                gravity: "top",
+                                position: "right",
+                                backgroundColor: "red",
+                                stopOnFocus: true
+                            }).showToast();
 					}
 				} else {
 					alert("Error: " + this.status);
